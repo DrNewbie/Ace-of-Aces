@@ -34,11 +34,13 @@ end
 
 function AceAces:No(them, item)
 	local skill_id = item:skill_id()
-	local tier = item:tier()
+	local tier = "ID_"..item:tier()
 	local skill_data = tweak_data.skilltree.skills[skill_id]
-	self.Settings["ID_"..tier] = {"None"}
-	QuickMenu:new("[Ace of Aces]", "##"..managers.localization:text(skill_data.name_id) .."## is not 'Ace of Aces' anymore", {{text = managers.localization:text("menu_back"), is_cancel_button = true}}, true)
-	self:Reload_Gui(them, item)
+	if self.Settings[tier] and tostring(self.Settings[tier].skill_id) == skill_id then
+		self.Settings[tier] = {"None"}
+		QuickMenu:new("[Ace of Aces]", "##"..managers.localization:text(skill_data.name_id) .."## is not 'Ace of Aces' anymore", {{text = managers.localization:text("menu_back"), is_cancel_button = true}}, true)
+		self:Reload_Gui(them, item)
+	end
 end
 
 function NewSkillTreeSkillItem:AAMaxedIconSetVisible(status)
