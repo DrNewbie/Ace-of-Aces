@@ -54,13 +54,13 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 			category = "player"
 		}
 	}
-	self.values.player.inspire_team_speed_up = {true}
-	self.definitions.player_inspire_team_speed_up = {
-		name_id = "menu_player_inspire_team_speed_up",
+	self.values.player.far_long_dis_revive = {true}
+	self.definitions.player_far_long_dis_revive = {
+		name_id = "menu_player_far_long_dis_revive",
 		category = "feature",
 		upgrade = {
 			value = 1,
-			upgrade = "inspire_team_speed_up",
+			upgrade = "far_long_dis_revive",
 			category = "player"
 		}
 	}

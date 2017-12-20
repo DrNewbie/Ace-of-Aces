@@ -5,7 +5,7 @@
 	"aceaces_feign_death" : "The chance to get instantly revived is increased by an additional ##30%##",
 	"aceaces_bandoliers" : "The effect is expanded to all kind of weapon and ammo.",
 	"aceaces_prison_wife" : "You regenerate an another additional ##25## armor for each successfull headshot.\nCooldown is reduced ##1## second.",
-	"aceaces_inspire" : "You give all your crew speedboost after revive someone.",
+	"aceaces_inspire" : "The inspire distance is increased by ##9## metres.",
 	"aceaces_insulation" : "The taser will now explode if the shock effect backfires on him.",
 	"aceaces_body_expertise" : "The effect is expanded to all of weapons and mode.",
 	"aceaces_oppressor" : "Increases your armor recovery rate by ##50%##",

@@ -32,7 +32,7 @@ AceAces.Skill_Tweak = {
 	},
 	["inspire"] = {
 		upgrades = {
-			"player_inspire_team_speed_up"
+			"player_far_long_dis_revive"
 		}
 	},
 	["insulation"] = {

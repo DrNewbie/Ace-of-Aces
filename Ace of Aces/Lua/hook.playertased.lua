@@ -16,13 +16,17 @@ Hooks:PreHook(PlayerTased, "_on_malfunction_to_taser_event", "AA_electro_boom", 
 				feedback_range = 2000
 			}
 		)
+		local damage = 10
+		if unit:character_damage() and not unit:character_damage():dead() then
+			damage = math.max(unit:character_damage()._HEALTH_INIT * 0.55, damage)
+		end
 		managers.explosion:detect_and_give_dmg({
 			curve_pow = 5,
 			player_damage = 0,
 			hit_pos = unit:movement():m_head_pos(),
 			range = 1000,
 			collision_slotmask = managers.slot:get_mask("explosion_targets"),
-			damage = 10,
+			damage = damage,
 			no_raycast_check_characters = false
 		})	
 	end
