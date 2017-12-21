@@ -195,4 +195,34 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 			category = "player"
 		}
 	}
+	self.values.player.run_and_punch = {2.0}
+	self.definitions.player_run_and_punch = {
+		name_id = "menu_player_run_and_punch",
+		category = "feature",
+		upgrade = {
+			value = 1,
+			upgrade = "run_and_punch",
+			category = "player"
+		}
+	}
+	self.values.player.counter_strike_spooc_boom = {true}
+	self.definitions.player_counter_strike_spooc_boom = {
+		name_id = "menu_player_counter_strike_spooc_boom",
+		category = "feature",
+		upgrade = {
+			value = 1,
+			upgrade = "counter_strike_spooc_boom",
+			category = "player"
+		}
+	}
+	self.values.player.bleed_out_health_multiplier[2] = 91.01
+	self.definitions.player_bleed_out_health_multiplier_god = {
+		name_id = "menu_player_bleed_out_health_multiplier_god",
+		category = "feature",
+		upgrade = {
+			value = 2,
+			upgrade = "bleed_out_health_multiplier",
+			category = "player"
+		}
+	}
 end)

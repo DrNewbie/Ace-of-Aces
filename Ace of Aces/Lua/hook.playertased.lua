@@ -28,6 +28,6 @@ Hooks:PreHook(PlayerTased, "_on_malfunction_to_taser_event", "AA_electro_boom", 
 			collision_slotmask = managers.slot:get_mask("explosion_targets"),
 			damage = damage,
 			no_raycast_check_characters = false
-		})	
+		})
 	end
 end)

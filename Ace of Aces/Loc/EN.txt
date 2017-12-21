@@ -4,7 +4,7 @@
 	"aceaces_juggernaut" : "Your gain another ##50%## more armor.",
 	"aceaces_feign_death" : "The chance to get instantly revived is increased by an additional ##30%##",
 	"aceaces_bandoliers" : "The effect is expanded to all kind of weapon and ammo.",
-	"aceaces_prison_wife" : "You regenerate an another additional ##25## armor for each successfull headshot.\nCooldown is reduced ##1## second.",
+	"aceaces_prison_wife" : "You regenerate an another additional ##25## armor for each successful headshot.\nCooldown is reduced ##1## second.",
 	"aceaces_inspire" : "The inspire distance is increased by ##9## metres.",
 	"aceaces_insulation" : "The taser will now explode if the shock effect backfires on him.",
 	"aceaces_body_expertise" : "The effect is expanded to all of weapons and mode.",
@@ -15,5 +15,8 @@
 	"aceaces_jack_of_all_trades" : "You can now bring the normal amount of secondary deployables with you.",
 	"aceaces_fire_trap" : "Increases the fire effect duration by ##15## seconds and increases the fire effect radius by ##75%##.",
 	"aceaces_single_shot_ammo_return" : "The amount of headshots required is reduced to ##1##.",
-	"aceaces_black_marketeer" : "Having at least one of your own hostage or converted law enforcer makes you regenerate ##9%## health every ##5## seconds."
+	"aceaces_black_marketeer" : "Having at least one of your own hostage or converted law enforcer makes you regenerate ##9%## health every ##5## seconds.",
+	"aceaces_martial_arts" : "You gain ##100%## additional movement speed while using melee.",
+	"aceaces_drop_soap" : "Each successfully counter attack will create an explosion.",
+	"aceaces_nine_lives" : "You now have ##9001%## more bleedout health."
 }

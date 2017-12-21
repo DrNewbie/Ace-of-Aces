@@ -87,6 +87,21 @@ AceAces.Skill_Tweak = {
 		upgrades = {
 			"player_hostage_health_regen_addend_3"
 		}
+	},
+	["martial_arts"] = {
+		upgrades = {
+			"player_run_and_punch"
+		}
+	},
+	["drop_soap"] = {
+		upgrades = {
+			"player_counter_strike_spooc_boom"
+		}
+	},
+	["nine_lives"] = {
+		upgrades = {
+			"player_bleed_out_health_multiplier_god"
+		}
 	}
 }
 
