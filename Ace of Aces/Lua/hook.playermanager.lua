@@ -150,3 +150,20 @@ Hooks:PreHook(PlayerManager, "_add_equipment", "AceAces_Ply_add_equipment", func
 		end
 	end
 end)
+
+local AA_ply_upgrade_value = PlayerManager.upgrade_value
+
+function PlayerManager:upgrade_value(category, upgrade, default)
+	local Ans = AA_ply_upgrade_value(self, category, upgrade, default)
+	if category == "pistol" and upgrade == "reload_speed_multiplier" and self:has_category_upgrade("pistol", "reload_speed_bonus") and self:has_category_upgrade("pistol", "stacked_accuracy_bonus") then	
+		local desperado = self:get_property("desperado", 1)
+		if (Ans + 1 - desperado) > Ans then
+			Ans = Ans + 1 - desperado
+		end
+	end
+	if category == "pistol" and upgrade == "magazine_capacity_inc" and self:has_category_upgrade("pistol", "magazine_capacity_multiplier") then	
+		local multiplier = self:upgrade_value("pistol", "magazine_capacity_multiplier", 1)
+		Ans = math.round(Ans * multiplier)
+	end
+	return Ans
+end

@@ -225,4 +225,92 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 			category = "player"
 		}
 	}
+	self.values.pistol.stacking_hit_damage_multiplier[3] = {
+		max_stacks = 10,
+		max_time = self.values.pistol.stacking_hit_damage_multiplier[2].max_time,
+		damage_bonus = self.values.pistol.stacking_hit_damage_multiplier[2].damage_bonus
+	}
+	self.definitions.pistol_stacking_hit_damage_multiplier_3 = {
+		name_id = "menu_pistol_stacking_hit_damage_multiplier",
+		category = "feature",
+		upgrade = {
+			value = 3,
+			upgrade = "stacking_hit_damage_multiplier",
+			category = "pistol"
+		}
+	}
+	self.values.pistol.stacked_accuracy_bonus[2] = {
+		max_stacks = 8,
+		accuracy_bonus = self.values.pistol.stacked_accuracy_bonus[1].accuracy_bonus,
+		max_time = self.values.pistol.stacked_accuracy_bonus[1].max_time
+	}
+	self.definitions.pistol_stacked_accuracy_bonus_2 = {
+		name_id = "menu_pistol_stacked_accuracy_bonus",
+		category = "feature",
+		upgrade = {
+			value = 2,
+			upgrade = "stacked_accuracy_bonus",
+			category = "pistol"
+		}
+	}
+	self.values.pistol.reload_speed_bonus = {true}
+	self.definitions.pistol_reload_speed_bonus_1 = {
+		name_id = "menu_pistol_reload_speed_bonus_1",
+		category = "feature",
+		upgrade = {
+			value = 1,
+			upgrade = "reload_speed_bonus",
+			category = "pistol"
+		}
+	}
+	self.values.pistol.magazine_capacity_multiplier = {2}
+	self.definitions.pistol_magazine_capacity_multiplier_1 = {
+		name_id = "menu_pistol_magazine_capacity_multiplier_1",
+		category = "feature",
+		upgrade = {
+			value = 1,
+			upgrade = "magazine_capacity_multiplier",
+			category = "pistol"
+		}
+	}
+	self.values.pistol.spread_index_addend[2] = 4
+	self.definitions.pistol_spread_index_addend_2 = {
+		name_id = "menu_pistol_spread_index_addend_2",
+		category = "feature",
+		upgrade = {
+			value = 2,
+			upgrade = "spread_index_addend",
+			category = "pistol"
+		}
+	}
+	self.values.player.take_less_from_ammo_bag = {0.25}
+	self.definitions.player_take_less_from_ammo_bag = {
+		name_id = "menu_player_take_less_from_ammo_bag",
+		category = "equipment_upgrade",
+		upgrade = {
+			value = 1,
+			upgrade = "take_less_from_ammo_bag",
+			category = "player"
+		}
+	}
+	self.values.weapon.put_that_in_faster = {0.5}
+	self.definitions.weapon_put_that_in_faster = {
+		name_id = "menu_weapon_put_that_in_faster",
+		category = "feature",
+		upgrade = {
+			value = 1,
+			upgrade = "put_that_in_faster",
+			category = "weapon"
+		}
+	}
+	self.values.player.mask_off_movement = {true}
+	self.definitions.player_mask_off_movement = {
+		name_id = "menu_player_mask_off_movement",
+		category = "feature",
+		upgrade = {
+			value = 1,
+			upgrade = "mask_off_movement",
+			category = "player"
+		}
+	}
 end)

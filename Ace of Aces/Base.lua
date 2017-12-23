@@ -102,6 +102,41 @@ AceAces.Skill_Tweak = {
 		upgrades = {
 			"player_bleed_out_health_multiplier_god"
 		}
+	},
+	["trigger_happy"] = {
+		upgrades = {
+			"pistol_stacking_hit_damage_multiplier_3"
+		}
+	},
+	["expert_handling"] = {
+		upgrades = {
+			"pistol_reload_speed_bonus_1"
+		}
+	},
+	["dance_instructor"] = {
+		upgrades = {
+			"pistol_magazine_capacity_multiplier_1"
+		}
+	},
+	["equilibrium"] = {
+		upgrades = {
+			"pistol_spread_index_addend_2"
+		}
+	},
+	["ammo_2x"] = {
+		upgrades = {
+			"player_take_less_from_ammo_bag"
+		}
+	},
+	["shotgun_cqb"] = {
+		upgrades = {
+			"weapon_put_that_in_faster"
+		}
+	},
+	["jail_workout"] = {
+		upgrades = {
+			"player_mask_off_movement"
+		}
 	}
 }
 

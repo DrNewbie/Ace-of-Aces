@@ -18,5 +18,12 @@
 	"aceaces_black_marketeer" : "Having at least one of your own hostage or converted law enforcer makes you regenerate ##9%## health every ##5## seconds.",
 	"aceaces_martial_arts" : "You gain ##100%## additional movement speed while using melee.",
 	"aceaces_drop_soap" : "Each successfully counter attack will create an explosion.",
-	"aceaces_nine_lives" : "You now have ##9001%## more bleedout health."
+	"aceaces_nine_lives" : "You now have ##9001%## more bleedout health.",
+	"aceaces_trigger_happy" : "The damage boost now stacks up to ##10## times.",
+	"aceaces_expert_handling" : "You reload all pistol ##10%## faster by each stack.\nStack is up to ##8## times now.",
+	"aceaces_dance_instructor" : "Your pistol magazine sizes are increased by ##100%##",
+	"aceaces_equilibrium" : "You gain an additional ##8## accuracy with all pistols.",
+	"aceaces_ammo_2x" : "You consume ##75%## less from ammo bag",
+	"aceaces_shotgun_cqb" : "You take ##50%## more faster to put ammo into clip.",
+	"aceaces_jail_workout" : "You can now jump and crouch in casing mode."
 }
