@@ -313,4 +313,24 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 			category = "player"
 		}
 	}
+	self.values.player.pick_lock_easy_speed_multiplier[2] = 0.25
+	self.definitions.player_pick_lock_easy_speed_multiplier_2 = {
+		name_id = "menu_player_pick_lock_easy_speed_multiplier",
+		category = "feature",
+		upgrade = {
+			value = 2,
+			upgrade = "pick_lock_easy_speed_multiplier",
+			category = "player"
+		}
+	}
+	self.values.player.pick_lock_so_hard = {true}
+	self.definitions.player_pick_lock_so_hard = {
+		name_id = "menu_player_pick_lock_so_hard",
+		category = "feature",
+		upgrade = {
+			value = 1,
+			upgrade = "pick_lock_so_hard",
+			category = "player"
+		}
+	}
 end)

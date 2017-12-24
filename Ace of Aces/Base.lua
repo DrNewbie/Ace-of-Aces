@@ -137,6 +137,12 @@ AceAces.Skill_Tweak = {
 		upgrades = {
 			"player_mask_off_movement"
 		}
+	},
+	["second_chances"] = {
+		upgrades = {
+			"player_pick_lock_easy_speed_multiplier_2",
+			"player_pick_lock_so_hard"
+		}
 	}
 }
 

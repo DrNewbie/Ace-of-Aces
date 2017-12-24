@@ -25,5 +25,8 @@
 	"aceaces_equilibrium" : "You gain an additional ##8## accuracy with all pistols.",
 	"aceaces_ammo_2x" : "You consume ##75%## less from ammo bag",
 	"aceaces_shotgun_cqb" : "You take ##50%## more faster to put ammo into clip.",
-	"aceaces_jail_workout" : "You can now jump and crouch in casing mode."
+	"aceaces_jail_workout" : "You can now jump and crouch in casing mode.",
+	"aceaces_second_chances" : "You lockpick ##200%## faster.\nYou can now hack keycard security panels.",
+	"hud_int_hack_keycard" : "Interact to Hack System",
+	"hud_action_hack_keycard" : "Nowloading..."
 }
