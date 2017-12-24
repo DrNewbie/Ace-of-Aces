@@ -4,7 +4,7 @@
 	"author" : "Dr_Newbie",
 	"contact" : "http://modwork.shop/21561",
 	"blt_version" : 2.0,
-	"version" : "30",
+	"version" : "31",
 	"priority" : 1,
 	"hooks" : [
 		{
