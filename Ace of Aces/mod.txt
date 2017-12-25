@@ -4,8 +4,8 @@
 	"author" : "Dr_Newbie",
 	"contact" : "http://modwork.shop/21561",
 	"blt_version" : 2.0,
-	"version" : "33",
-	"priority" : 1,
+	"version" : "34",
+	"priority" : 100,
 	"hooks" : [
 		{
 			"hook_id" : "lib/managers/localizationmanager",
