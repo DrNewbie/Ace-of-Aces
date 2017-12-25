@@ -1,18 +1,11 @@
 local SpecialHackLock_interact = UseInteractionExt.interact
 
-function UseInteractionExt:can_hack_keycard()
-	if not managers.player:has_category_upgrade("player", "pick_lock_so_hard") then
-		return false
-	end
-	return self.tweak_data ~= "hack_keycard" or alive(self._unit)
-end
-
 function UseInteractionExt:can_select(...)
-	return BaseInteractionExt.can_select(self, ...) and self:can_hack_keycard()
+	return BaseInteractionExt.can_select(self, ...) 
 end
 
 function UseInteractionExt:can_interact(...)
-	return BaseInteractionExt.can_interact(self, ...) and self:can_hack_keycard()
+	return BaseInteractionExt.can_interact(self, ...)
 end
 
 Hooks:PostHook(UseInteractionExt, "_at_interact_start", 'SpecialHackLock_at_interact_start', function(self, player)
