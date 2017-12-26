@@ -1,13 +1,20 @@
-local set_attributes_original = NetworkMatchMakingSTEAM.set_attributes
+local AABlock_set_attributes = NetworkMatchMakingSTEAM.set_attributes
 function NetworkMatchMakingSTEAM:set_attributes(settings, ...)
-	settings.numbers[3] = settings.numbers[3] < 2 and 2 or settings.numbers[3]
-	set_attributes_original(self, settings, ...)
+	if settings.numbers[3] == 1 then
+		settings.numbers[3] = 2
+	end
+	AABlock_set_attributes(self, settings, ...)
 end
 
-local is_server_ok_original = NetworkMatchMakingSTEAM.is_server_ok
-function NetworkMatchMakingSTEAM:is_server_ok(friends_only, room, attributes_numbers, is_invite, ...)
-	if attributes_numbers[3] < 2 then
-		return false
+function NetworkMatchMakingSTEAM:is_server_ok(friends_only, room)
+	local OK = false
+	if Steam:logged_on() and Steam:friends() then
+		for _, friend in ipairs(Steam:friends()) do
+			if friend:id() == room then
+				OK = true
+				break
+			end
+		end
 	end
-	return is_server_ok_original(self, friends_only, room, attributes_numbers, is_invite, ...)
+	return OK
 end
