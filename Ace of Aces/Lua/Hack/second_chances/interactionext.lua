@@ -3,9 +3,12 @@ local SpecialHackLock_interact_start = UseInteractionExt.interact_start
 local SpecialHackLock_post_event = UseInteractionExt._post_event
 local SpecialHackLock_selected = UseInteractionExt.selected
 
-local SpecialHackLock_ChancgeList = {
-	numpad_keycard = true
-}
+local SpecialHackLock_ChancgeList= {}
+for name_id, data in pairs(tweak_data.interaction) do
+	if tostring(data.special_equipment) == "bank_manager_key" then
+		SpecialHackLock_ChancgeList[name_id] = true
+	end
+end
 SpecialHackLock_CheckList = SpecialHackLock_ChancgeList
 SpecialHackLock_CheckList.hack_keycard = true
 
