@@ -3,17 +3,22 @@ local SpecialHackLock_interact_start = UseInteractionExt.interact_start
 local SpecialHackLock_post_event = UseInteractionExt._post_event
 local SpecialHackLock_selected = UseInteractionExt.selected
 
-local SpecialHackLock_ChancgeList= {}
-for name_id, data in pairs(tweak_data.interaction) do
-	if type(data) == "table" and type(data.special_equipment) == "string" and data.special_equipment == "bank_manager_key" then
-		SpecialHackLock_ChancgeList[name_id] = true
+function SpecialHackLock_ChancgeList(id)
+	if tweak_data.interaction and type(tweak_data.interaction[id]) == "table" and type(tweak_data.interaction[id].special_equipment) == "string" and tweak_data.interaction[id].special_equipment == "bank_manager_key" then
+		return true
 	end
+	return false
 end
-SpecialHackLock_CheckList = SpecialHackLock_ChancgeList
-SpecialHackLock_CheckList.hack_keycard = true
+
+function SpecialHackLock_CheckList(id)
+	if id == "hack_keycard" then
+		return true
+	end
+	return SpecialHackLock_ChancgeList(id)
+end
 
 function UseInteractionExt:can_hack_keycard()
-	if SpecialHackLock_CheckList[self.tweak_data] then
+	if SpecialHackLock_CheckList(self.tweak_data) then
 		return managers.player:has_category_upgrade("player", "pick_lock_so_hard")
 	end
 	return true
@@ -24,14 +29,14 @@ function UseInteractionExt:can_select(...)
 end
 
 function UseInteractionExt:_timer_value()
-	if SpecialHackLock_ChancgeList[self.tweak_data] then
+	if SpecialHackLock_ChancgeList(self.tweak_data) then
 		return tweak_data.interaction.hack_keycard.timer or 0
 	end
 	return self._tweak_data.timer or 0
 end
 
 function UseInteractionExt:interact_start(player)
-	if SpecialHackLock_ChancgeList[self.tweak_data] then
+	if SpecialHackLock_ChancgeList(self.tweak_data) and self.tweak_data ~= "hack_keycard" then
 		local blocked, skip_hint, custom_hint = self:_interact_blocked(player)
 		local tweak_timer = tweak_data.interaction.hack_keycard.timer or 0
 		local has_equipment = not self._tweak_data.special_equipment and true or managers.player:has_special_equipment(self._tweak_data.special_equipment)
@@ -64,7 +69,7 @@ end
 
 function UseInteractionExt:selected(...)
 	local Ans = SpecialHackLock_selected(self, ...)
-	if SpecialHackLock_ChancgeList[self.tweak_data] then
+	if SpecialHackLock_ChancgeList(self.tweak_data) then
 		local has_equipment = not self._tweak_data.special_equipment and true or managers.player:has_special_equipment(self._tweak_data.special_equipment)
 		if not has_equipment then
 			managers.hud:show_interact({
@@ -77,7 +82,7 @@ function UseInteractionExt:selected(...)
 end
 
 function UseInteractionExt:_post_event(...)
-	if SpecialHackLock_ChancgeList[self.tweak_data] then
+	if SpecialHackLock_ChancgeList(self.tweak_data) then
 		return
 	end
 	return SpecialHackLock_post_event(self, ...)
@@ -104,7 +109,7 @@ function UseInteractionExt:interact(player)
 			self._unit:base():device_completed("key")
 			return true
 		end
-	elseif SpecialHackLock_ChancgeList[self.tweak_data] then
+	elseif SpecialHackLock_ChancgeList(self.tweak_data) then
 		self:remove_interact()
 		if self._unit:damage() then
 			self._unit:damage():run_sequence_simple("interact", {unit = player})
@@ -143,7 +148,7 @@ function UseInteractionExt:can_interact(player)
 	if not self._tweak_data.special_equipment or self._tweak_data.dont_need_equipment then
 		return true
 	end
-	if SpecialHackLock_CheckList[self.tweak_data] then
+	if SpecialHackLock_CheckList(self.tweak_data) then
 		return managers.player:has_category_upgrade("player", "pick_lock_so_hard")
 	end
 	return managers.player:has_special_equipment(self._tweak_data.special_equipment)
