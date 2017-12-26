@@ -5,7 +5,7 @@ local SpecialHackLock_selected = UseInteractionExt.selected
 
 local SpecialHackLock_ChancgeList= {}
 for name_id, data in pairs(tweak_data.interaction) do
-	if tostring(data.special_equipment) == "bank_manager_key" then
+	if type(data) == "table" and type(data.special_equipment) == "string" and data.special_equipment == "bank_manager_key" then
 		SpecialHackLock_ChancgeList[name_id] = true
 	end
 end
