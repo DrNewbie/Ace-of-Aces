@@ -4,7 +4,7 @@
 	"author" : "Dr_Newbie",
 	"contact" : "http://modwork.shop/21561",
 	"blt_version" : 2.0,
-	"version" : "43",
+	"version" : "44",
 	"priority" : 100,
 	"hooks" : [
 		{
@@ -74,6 +74,10 @@
 		{
 			"hook_id": "lib/units/weapons/projectiles/arrowbase",
 			"script_path": "Lua/Hack/sentry_gun/arrowbase.lua"
+		},
+		{
+			"hook_id": "lib/units/equipment/sentry_gun/sentrygunbase",
+			"script_path": "Lua/Hack/sentry_gun/sentrygunbase.lua"
 		}
 	]		
 }
