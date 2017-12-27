@@ -28,6 +28,7 @@
 	"aceaces_jail_workout" : "You can now jump and crouch in casing mode.",
 	"aceaces_second_chances" : "You lockpick ##200%## faster.\nYou can now hack keycard security panels.",
 	"aceaces_engineering" : "You can now pick up destroyed sentry guns.",
+	"aceaces_tower_defense" : "Your sentry will fire explode arrow now.",
 	"hud_int_hack_keycard" : "Interact to Hack System",
 	"hud_action_hack_keycard" : "Nowloading..."
 }

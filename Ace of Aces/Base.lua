@@ -148,6 +148,11 @@ AceAces.Skill_Tweak = {
 		upgrades = {
 			"sentry_gun_dead_take_up"
 		}
+	},
+	["tower_defense"] = {
+		upgrades = {
+			"sentry_gun_explode_arrow"
+		}
 	}
 }
 

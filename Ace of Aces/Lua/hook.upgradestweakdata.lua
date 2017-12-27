@@ -344,4 +344,15 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 			category = "sentry_gun"
 		}
 	}
+	self.values.sentry_gun.explode_arrow = {3}
+	self.definitions.sentry_gun_explode_arrow = {
+		name_id = "menu_sentry_gun_explode_arrow",
+		category = "feature",
+		upgrade = {
+			value = 1,
+			upgrade = "explode_arrow",
+			synced = true,
+			category = "sentry_gun"
+		}
+	}
 end)
