@@ -355,4 +355,16 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 			category = "sentry_gun"
 		}
 	}
+	self.values.sentry_gun.extra_ammo_multiplier[2] = 4
+	self.definitions.sentry_gun_extra_ammo_multiplier_2 = {
+		incremental = true,
+		name_id = "menu_sentry_gun_extra_ammo_multiplier",
+		category = "feature",
+		upgrade = {
+			value = 2,
+			upgrade = "extra_ammo_multiplier",
+			synced = true,
+			category = "sentry_gun"
+		}
+	}
 end)

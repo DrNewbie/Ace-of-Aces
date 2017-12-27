@@ -153,6 +153,11 @@ AceAces.Skill_Tweak = {
 		upgrades = {
 			"sentry_gun_explode_arrow"
 		}
+	},
+	["sentry_targeting_package"] = {
+		upgrades = {
+			"sentry_gun_extra_ammo_multiplier_2"
+		}
 	}
 }
 
