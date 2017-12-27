@@ -6,15 +6,15 @@ function NetworkMatchMakingSTEAM:set_attributes(settings, ...)
 	AABlock_set_attributes(self, settings, ...)
 end
 
-function NetworkMatchMakingSTEAM:is_server_ok(friends_only, room)
-	local OK = false
-	if Steam:logged_on() and Steam:friends() then
-		for _, friend in ipairs(Steam:friends()) do
-			if friend:id() == room then
-				OK = true
-				break
-			end
-		end
-	end
-	return OK
+local AABlock_search_lobby = NetworkMatchMakingSTEAM.search_lobby
+function NetworkMatchMakingSTEAM:search_lobby(friends_only, ...)
+	AABlock_search_lobby(self, true, ...)
 end
+
+function NetworkMatchMakingSTEAM:search_friends_only()
+	return true
+end
+
+Hooks:PostHook(NetworkMatchMakingSTEAM, "load_user_filters", 'AA_load_user_filters', function()
+	Global.game_settings.search_friends_only = true
+end)

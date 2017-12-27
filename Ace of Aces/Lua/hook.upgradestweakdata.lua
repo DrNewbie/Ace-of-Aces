@@ -333,4 +333,15 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 			category = "player"
 		}
 	}
+	self.values.sentry_gun.dead_take_up = {true}
+	self.definitions.sentry_gun_dead_take_up = {
+		name_id = "menu_sentry_gun_dead_take_up",
+		category = "feature",
+		upgrade = {
+			value = 1,
+			upgrade = "dead_take_up",
+			synced = true,
+			category = "sentry_gun"
+		}
+	}
 end)

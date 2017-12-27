@@ -143,6 +143,11 @@ AceAces.Skill_Tweak = {
 			"player_pick_lock_easy_speed_multiplier_2",
 			"player_pick_lock_so_hard"
 		}
+	},
+	["engineering"] = {
+		upgrades = {
+			"sentry_gun_dead_take_up"
+		}
 	}
 }
 
