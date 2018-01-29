@@ -2,6 +2,7 @@ local SpecialHackLock_interact = UseInteractionExt.interact
 local SpecialHackLock_interact_start = UseInteractionExt.interact_start
 local SpecialHackLock_post_event = UseInteractionExt._post_event
 local SpecialHackLock_selected = UseInteractionExt.selected
+local SpecialHackLock_can_select = UseInteractionExt.can_select
 local SpecialHackLock_SkillAA = function()
 	return managers.player:has_category_upgrade("player", "pick_lock_so_hard")
 end
@@ -28,7 +29,10 @@ function UseInteractionExt:can_hack_keycard()
 end
 
 function UseInteractionExt:can_select(...)
-	return BaseInteractionExt.can_select(self, ...) and self:can_hack_keycard()
+	if self:can_hack_keycard() then
+		return true
+	end
+	return SpecialHackLock_can_select(self, ...)
 end
 
 function UseInteractionExt:_timer_value()
@@ -157,8 +161,8 @@ function UseInteractionExt:can_interact(player)
 	if not self._tweak_data.special_equipment or self._tweak_data.dont_need_equipment then
 		return true
 	end
-	if SpecialHackLock_SkillAA() then
-		return SpecialHackLock_CheckList(self.tweak_data)
+	if SpecialHackLock_SkillAA() and SpecialHackLock_CheckList(self.tweak_data) then
+		return true
 	end
 	return managers.player:has_special_equipment(self._tweak_data.special_equipment)
 end
