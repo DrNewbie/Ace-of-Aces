@@ -126,7 +126,7 @@ function PlayerManager:_add_equipment_normal(params)
 
 	if #amount > 1 then
 		managers.hud:add_item_from_string({
-			amount_str = make_double_hud_string(amount[1], amount[2]),
+			amount_str = string.format("%01d|%01d", amount[1], amount[2]),
 			amount = amount,
 			icon = icon
 		})
