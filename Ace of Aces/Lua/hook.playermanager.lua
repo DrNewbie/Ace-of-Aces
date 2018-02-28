@@ -167,3 +167,13 @@ function PlayerManager:upgrade_value(category, upgrade, default)
 	end
 	return Ans
 end
+
+local AA_ply_skill_dodge_chance = PlayerManager.skill_dodge_chance
+function PlayerManager:skill_dodge_chance(...)
+	local Ans = AA_ply_skill_dodge_chance(self, ...)
+	if self:has_activate_temporary_upgrade("temporary", "increased_dodge") then
+		local upgrade_value = self:upgrade_value("temporary", "increased_dodge") or {0, 0}
+		Ans = Ans + upgrade_value[1]
+	end
+	return Ans
+end

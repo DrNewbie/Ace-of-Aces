@@ -158,6 +158,16 @@ AceAces.Skill_Tweak = {
 		upgrades = {
 			"sentry_gun_extra_ammo_multiplier_2"
 		}
+	},
+	["up_you_go"] = {
+		upgrades = {
+			"player_temp_health_regen_1"
+		}
+	},
+	["running_from_death"] = {
+		upgrades = {
+			"player_temp_increased_dodge_1"
+		}
 	}
 }
 

@@ -367,4 +367,31 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 			category = "sentry_gun"
 		}
 	}
+	self.values.temporary.increased_dodge = {{
+		0.2,
+		10
+	}}
+	self.definitions.player_temp_increased_dodge_1 = {
+		name_id = "player_temp_increased_dodge_1",
+		category = "temporary",
+		upgrade = {
+			value = 1,
+			upgrade = "increased_dodge",
+			category = "temporary"
+		}
+	}
+	self.values.temporary.health_regen = {{
+		0.5,
+		10,
+		0.5
+	}}
+	self.definitions.player_temp_health_regen_1 = {
+		name_id = "player_temp_health_regen_1",
+		category = "temporary",
+		upgrade = {
+			value = 1,
+			upgrade = "health_regen",
+			category = "temporary"
+		}
+	}
 end)
