@@ -1,4 +1,4 @@
-Hooks:PreHook(PlayerDamage, "revive", "AceAces_PlyDmg_revive", function(self)
+Hooks:PostHook(PlayerDamage, "revive", "AceAces_PlyDmg_revive", function(self)
 	if managers.player:has_category_upgrade("temporary", "increased_dodge") and managers.player:has_inactivate_temporary_upgrade("temporary", "increased_dodge") then
 		managers.player:activate_temporary_upgrade("temporary", "increased_dodge")
 	end
@@ -7,7 +7,7 @@ Hooks:PreHook(PlayerDamage, "revive", "AceAces_PlyDmg_revive", function(self)
 	end
 end)
 
-Hooks:PreHook(PlayerDamage, "_upd_health_regen", "AceAces_PlyDmg_upd_health_regen", function(self, t, dt)
+Hooks:PostHook(PlayerDamage, "_upd_health_regen", "AceAces_PlyDmg_upd_health_regen", function(self, t, dt)
 	if self._temp_health_regen_timer then
 		self._temp_health_regen_timer = self._temp_health_regen_timer - dt
 		if self._temp_health_regen_timer <= 0 then

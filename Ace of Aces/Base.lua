@@ -78,11 +78,6 @@ AceAces.Skill_Tweak = {
 			"trip_mine_fire_trap_3"
 		}
 	},
-	["single_shot_ammo_return"] = {
-		upgrades = {
-			"head_shot_ammo_return_3"
-		}
-	},
 	["black_marketeer"] = {
 		upgrades = {
 			"player_hostage_health_regen_addend_3"

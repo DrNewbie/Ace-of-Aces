@@ -394,4 +394,14 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 			category = "temporary"
 		}
 	}
+	self.values.snp.graze_taser_effect = {true}
+	self.definitions.snp_graze_taser_effect = {
+		name_id = "snp_graze_taser_effect",
+		category = "feature",
+		upgrade = {
+			value = 1,
+			upgrade = "graze_taser_effect",
+			category = "snp"
+		}
+	}
 end)
