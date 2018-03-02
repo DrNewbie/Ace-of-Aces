@@ -163,6 +163,16 @@ AceAces.Skill_Tweak = {
 		upgrades = {
 			"player_temp_increased_dodge_1"
 		}
+	},
+	["single_shot_ammo_return"] = {
+		upgrades = {
+			"snp_graze_taser_effect"
+		}
+	},
+	["spotter_teamwork"] = {
+		upgrades = {
+			"head_shot_ammo_return_3"
+		}
 	}
 }
 
