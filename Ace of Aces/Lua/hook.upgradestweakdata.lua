@@ -404,4 +404,14 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 			category = "snp"
 		}
 	}
+	self.values.temporary.joker_temp_invulnerable = {0.8}
+	self.definitions.joker_temp_invulnerable = {
+		name_id = "joker_temp_invulnerable",
+		category = "feature",
+		upgrade = {
+			value = 1,
+			upgrade = "joker_temp_invulnerable",
+			category = "temporary"
+		}
+	}
 end)

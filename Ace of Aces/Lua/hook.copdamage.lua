@@ -20,3 +20,17 @@ Hooks:PostHook(CopDamage, "damage_simple", "AA_Graze_Taser_Effect", function(sel
 	attack_data.variant = "heavy"
 	self:damage_tase(attack_data)
 end)
+
+Hooks:PostHook(CopDamage, "convert_to_criminal", "AA_joker_temp_invulnerable_init", function(self)
+	if managers.player:has_category_upgrade("temporary", "joker_temp_invulnerable") then
+		self._is_joker_temp_invulnerable = true
+		self._time_joker_temp_invulnerable = nil
+	end
+end)
+
+Hooks:PostHook(CopDamage, "_apply_damage_to_health", "AA_joker_temp_invulnerable_run", function(self, damage)
+	if self._is_joker_temp_invulnerable and not self._time_joker_temp_invulnerable then
+		self._time_joker_temp_invulnerable = managers.player:upgrade_value("temporary", "joker_temp_invulnerable", 0)
+		self:set_invulnerable(true)
+	end
+end)

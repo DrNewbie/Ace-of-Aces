@@ -173,12 +173,13 @@ AceAces.Skill_Tweak = {
 		upgrades = {
 			"head_shot_ammo_return_3"
 		}
+	},
+	["joker"] = {
+		upgrades = {
+			"joker_temp_invulnerable"
+		}
 	}
 }
-
-if ModCore then
-	ModCore:new(AceAces.ModPath.."Config.xml", false, true):init_modules()
-end
 
 function AceAces:Save()
 	local _file = io.open(self.SavePath, "w+")
