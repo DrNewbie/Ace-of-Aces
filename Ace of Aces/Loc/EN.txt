@@ -34,6 +34,7 @@
 	"aceaces_spotter_teamwork" : "The amount of headshots required is reduced to ##1##.",
 	"aceaces_single_shot_ammo_return" : "All enemies within a ##100cm## radius of the bullet trajectory are tased.",
 	"aceaces_joker" : "Your converted enemy gets ##0.8## seconds of invulnerability whenever they take damage.",
+	"aceaces_control_freak" : "You gain ##25%## armor for each converted enemy up to ##8## times.",
 	"hud_int_hack_keycard" : "Interact to Hack System",
 	"hud_action_hack_keycard" : "Nowloading..."
 }

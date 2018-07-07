@@ -178,6 +178,11 @@ AceAces.Skill_Tweak = {
 		upgrades = {
 			"joker_temp_invulnerable"
 		}
+	},
+	["control_freak"] = {
+		upgrades = {
+			"joker_give_armor"
+		}
 	}
 }
 

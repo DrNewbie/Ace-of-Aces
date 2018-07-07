@@ -53,10 +53,10 @@ Hooks:PostHook(PlayerManager, "on_headshot_dealt", "AceAces_Ply_on_headshot_deal
 	end
 end)
 
-local AA_run_and_punch = PlayerManager.mod_movement_penalty
+AA_ply_run_and_punch = AA_ply_run_and_punch or PlayerManager.mod_movement_penalty
 
 function PlayerManager:mod_movement_penalty(...)
-	local Ans = AA_run_and_punch(self, ...)
+	local Ans = AA_ply_run_and_punch(self, ...)
 	if self:has_category_upgrade("player", "run_and_punch") then		
 		if self:current_state() == "standard" and self:player_unit():movement()._current_state then
 			if self:player_unit():movement()._current_state:_is_meleeing() then
@@ -151,7 +151,7 @@ Hooks:PreHook(PlayerManager, "_add_equipment", "AceAces_Ply_add_equipment", func
 	end
 end)
 
-local AA_ply_upgrade_value = PlayerManager.upgrade_value
+AA_ply_upgrade_value = AA_ply_upgrade_value or PlayerManager.upgrade_value
 
 function PlayerManager:upgrade_value(category, upgrade, default)
 	local Ans = AA_ply_upgrade_value(self, category, upgrade, default)
@@ -168,7 +168,7 @@ function PlayerManager:upgrade_value(category, upgrade, default)
 	return Ans
 end
 
-local AA_ply_skill_dodge_chance = PlayerManager.skill_dodge_chance
+AA_ply_skill_dodge_chance = AA_ply_skill_dodge_chance or PlayerManager.skill_dodge_chance
 function PlayerManager:skill_dodge_chance(...)
 	local Ans = AA_ply_skill_dodge_chance(self, ...)
 	if self:has_activate_temporary_upgrade("temporary", "increased_dodge") then

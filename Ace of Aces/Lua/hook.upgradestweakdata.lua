@@ -414,4 +414,14 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 			category = "temporary"
 		}
 	}
+	self.values.temporary.joker_give_armor = {{0.25, 8}}
+	self.definitions.joker_give_armor = {
+		name_id = "joker_give_armor",
+		category = "feature",
+		upgrade = {
+			value = 1,
+			upgrade = "joker_give_armor",
+			category = "temporary"
+		}
+	}
 end)

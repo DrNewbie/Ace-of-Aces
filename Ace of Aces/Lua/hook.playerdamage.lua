@@ -25,3 +25,15 @@ Hooks:PostHook(PlayerDamage, "_upd_health_regen", "AceAces_PlyDmg_upd_health_reg
 		end
 	end
 end)
+
+AA_plydmg_raw_max_armor = AA_plydmg_raw_max_armor or PlayerDamage._raw_max_armor
+function PlayerDamage:_raw_max_armor(...)
+	local Ans = AA_plydmg_raw_max_armor(self, ...)
+	if managers.player:has_category_upgrade("temporary", "joker_give_armor") then
+		local upgrade_value = managers.player:upgrade_value("temporary", "joker_give_armor") or {0, 0}
+		local joker_count = math.min(managers.groupai:state():get_amount_enemies_converted_to_criminals(), upgrade_value[2])
+		local buff = 1 + upgrade_value[1] * joker_count
+		Ans = Ans * buff
+	end
+	return Ans
+end
