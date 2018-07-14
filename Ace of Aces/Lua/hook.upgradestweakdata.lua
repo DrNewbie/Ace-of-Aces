@@ -434,7 +434,7 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 			category = "saw"
 		}
 	}
-	self.values.player.no_ammo_cost_repeat = {{1, 3, 5}}
+	self.values.player.no_ammo_cost_repeat = {{0.3, 3, 5}}
 	self.definitions.temporary_no_ammo_cost_repeat = {
 		name_id = "temporary_no_ammo_cost_repeat",
 		category = "temporary",
