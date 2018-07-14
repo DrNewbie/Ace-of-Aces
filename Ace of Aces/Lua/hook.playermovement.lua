@@ -4,7 +4,7 @@ Hooks:PostHook(PlayerMovement, "init", "AA_PlayerMovementInit", function(self)
 	end
 end)
 
-local AA_on_SPOOCed = PlayerMovement.on_SPOOCed
+AA_on_SPOOCed = AA_on_SPOOCed or PlayerMovement.on_SPOOCed
 
 function PlayerMovement:on_SPOOCed(enemy_unit)
 	local Ans = AA_on_SPOOCed(self, enemy_unit)

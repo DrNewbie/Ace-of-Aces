@@ -1,6 +1,6 @@
 <table name="Ace of Aces">
 	<Localization directory="Loc" default="EN.txt"/>
-	<AssetUpdates id="21561" version="52" provider="modworkshop" use_local_dir="true" use_local_path="true"/>
+	<AssetUpdates id="21561" version="53" provider="modworkshop" use_local_dir="true" use_local_path="true"/>
 	<AddFiles directory="Assets">
 		<texture path="guis/textures/pd2/skilltree_2/aceaces_symbol" force = "true"/>
 	</AddFiles>

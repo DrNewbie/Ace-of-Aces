@@ -424,4 +424,24 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 			category = "temporary"
 		}
 	}
+	self.values.saw.extra_ammo_multiplier[2] = 2.5
+	self.definitions.saw_extra_ammo_multiplier_2 = {
+		name_id = "saw_extra_ammo_multiplier_2",
+		category = "feature",
+		upgrade = {
+			value = 2,
+			upgrade = "extra_ammo_multiplier",
+			category = "saw"
+		}
+	}
+	self.values.player.no_ammo_cost_repeat = {{1, 3, 5}}
+	self.definitions.temporary_no_ammo_cost_repeat = {
+		name_id = "temporary_no_ammo_cost_repeat",
+		category = "temporary",
+		upgrade = {
+			value = 1,
+			upgrade = "no_ammo_cost_repeat",
+			category = "player"
+		}
+	}
 end)

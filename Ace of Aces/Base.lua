@@ -183,6 +183,16 @@ AceAces.Skill_Tweak = {
 		upgrades = {
 			"joker_give_armor"
 		}
+	},
+	["portable_saw"] = {
+		upgrades = {
+			"saw_extra_ammo_multiplier_2"
+		}
+	},
+	["ammo_reservoir"] = {
+		upgrades = {
+			"temporary_no_ammo_cost_repeat"
+		}
 	}
 }
 

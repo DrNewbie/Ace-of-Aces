@@ -35,6 +35,8 @@
 	"aceaces_single_shot_ammo_return" : "All enemies within a ##100cm## radius of the bullet trajectory are tased.",
 	"aceaces_joker" : "Your converted enemy gets ##0.8## seconds of invulnerability whenever they take damage.",
 	"aceaces_control_freak" : "You gain ##25%## armor for each converted enemy up to ##8## times.",
+	"aceaces_portable_saw" : "You gain ##2## additional saw blades for the OVER9000 portable saw.",
+	"aceaces_ammo_reservoir" : "You have ##30%## chance to enter 'Bullet Storm' for ##3## seconds while standing next to any ammo bags.",
 	"hud_int_hack_keycard" : "Interact to Hack System",
 	"hud_action_hack_keycard" : "Nowloading..."
 }
