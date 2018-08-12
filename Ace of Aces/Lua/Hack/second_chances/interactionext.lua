@@ -23,7 +23,7 @@ function SpecialHackLock_CheckList(id)
 	return SpecialHackLock_ChancgeList(id)
 end
 
-function UseInteractionExt:can_hack_keycard()
+function SpecialHackLock_can_hack_keycard()
 	if SpecialHackLock_SkillAA() then
 		return SpecialHackLock_CheckList(self.tweak_data)
 	end
@@ -31,14 +31,14 @@ function UseInteractionExt:can_hack_keycard()
 end
 
 function UseInteractionExt:can_select(...)
-	if self:can_hack_keycard() then
+	if SpecialHackLock_can_hack_keycard() then
 		return true
 	end
 	return SpecialHackLock_can_select(self, ...)
 end
 
 function UseInteractionExt:_timer_value()
-	if self:can_hack_keycard() then
+	if SpecialHackLock_can_hack_keycard() then
 		local has_equipment = not self._tweak_data.special_equipment and true or managers.player:has_special_equipment(self._tweak_data.special_equipment)
 		return not has_equipment and tweak_data.interaction.hack_keycard.timer or 0
 	end
@@ -46,7 +46,7 @@ function UseInteractionExt:_timer_value()
 end
 
 function UseInteractionExt:interact_start(player)
-	if self:can_hack_keycard() and self.tweak_data ~= "hack_keycard" then
+	if SpecialHackLock_can_hack_keycard() and self.tweak_data ~= "hack_keycard" then
 		local blocked, skip_hint, custom_hint = self:_interact_blocked(player)
 		local tweak_timer = tweak_data.interaction.hack_keycard.timer or 0
 		local has_equipment = not self._tweak_data.special_equipment and true or managers.player:has_special_equipment(self._tweak_data.special_equipment)
@@ -76,7 +76,7 @@ end
 
 function UseInteractionExt:selected(...)
 	local Ans = SpecialHackLock_selected(self, ...)
-	if self:can_hack_keycard() then
+	if SpecialHackLock_can_hack_keycard() then
 		local has_equipment = not self._tweak_data.special_equipment and true or managers.player:has_special_equipment(self._tweak_data.special_equipment)
 		if not has_equipment then
 			managers.hud:show_interact({
@@ -96,13 +96,13 @@ function UseInteractionExt:_post_event(...)
 end
 
 Hooks:PostHook(UseInteractionExt, "_at_interact_start", 'SpecialHackLock_at_interact_start', function(self, player)
-	if self:can_hack_keycard() then
+	if SpecialHackLock_can_hack_keycard() then
 		player:base():set_detection_multiplier("hack_keycard", 0.5)
 	end
 end)
 
 Hooks:PostHook(UseInteractionExt, "_at_interact_interupt", 'SpecialHackLock_interact_interupt', function(self, player)
-	if self:can_hack_keycard() then
+	if SpecialHackLock_can_hack_keycard() then
 		player:base():set_detection_multiplier("hack_keycard", 1)
 	end
 end)
@@ -133,38 +133,24 @@ function UseInteractionExt:interact(player)
 	return SpecialHackLock_interact(self, player)
 end
 
-function UseInteractionExt:can_interact(player)
-	if self._host_only and not Network:is_server() then
-		return false
-	end
-
-	if self._disabled then
-		return false
-	end
-
-	if not self:_has_required_upgrade(alive(player) and player:movement() and player:movement().current_state_name and player:movement():current_state_name()) then
-		return false
-	end
-
-	if not self:_has_required_deployable() then
-		return false
-	end
-
-	if not self:_is_in_required_state(alive(player) and player:movement() and player:movement().current_state_name and player:movement():current_state_name()) then
-		return false
-	end
-
-	if self._tweak_data.special_equipment_block and managers.player:has_special_equipment(self._tweak_data.special_equipment_block) then
-		return false
-	end
-
-	if not self._tweak_data.special_equipment or self._tweak_data.dont_need_equipment then
+function UseInteractionExt:can_interact(player, ...)
+	if SpecialHackLock_can_hack_keycard() then
+		if self._host_only and not Network:is_server() then
+			return false
+		end
+		if self._disabled then
+			return false
+		end
+		if not self:_has_required_upgrade(alive(player) and player:movement() and player:movement().current_state_name and player:movement():current_state_name()) then
+			return false
+		end
+		if not self:_has_required_deployable() then
+			return false
+		end
+		if not self:_is_in_required_state(alive(player) and player:movement() and player:movement().current_state_name and player:movement():current_state_name()) then
+			return false
+		end
 		return true
 	end
-	
-	if self:can_hack_keycard() then
-		return true
-	end
-
-	return managers.player:has_special_equipment(self._tweak_data.special_equipment)
+	return SpecialHackLock_can_interact(self, player, ...)
 end
