@@ -39,7 +39,8 @@ end
 
 function UseInteractionExt:_timer_value()
 	if self:can_hack_keycard() then
-		return tweak_data.interaction.hack_keycard.timer or 0
+		local has_equipment = not self._tweak_data.special_equipment and true or managers.player:has_special_equipment(self._tweak_data.special_equipment)
+		return not has_equipment and tweak_data.interaction.hack_keycard.timer or 0
 	end
 	return self._tweak_data.timer or 0
 end
@@ -60,7 +61,7 @@ function UseInteractionExt:interact_start(player)
 				if self._tweak_data.blocked_hint then
 					managers.hint:show_hint(self._tweak_data.blocked_hint)
 				end
-					return false
+				return false
 			end
 			local run_time = self:_get_timer()
 			if run_time > 0 then
