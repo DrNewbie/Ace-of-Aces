@@ -157,5 +157,5 @@ function UseInteractionExt:can_interact(player)
 	if not self._tweak_data.special_equipment or self._tweak_data.dont_need_equipment then
 		return true
 	end
-	return return managers.player:has_special_equipment(self._tweak_data.special_equipment) and false or true
+	return managers.player:has_special_equipment(self._tweak_data.special_equipment) and false or true
 end
