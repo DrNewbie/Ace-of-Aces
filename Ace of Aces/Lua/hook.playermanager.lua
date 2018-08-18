@@ -102,7 +102,7 @@ function PlayerManager:_add_equipment_normal(params)
 		end
 
 		local amt = (quantity[i] or 0) + self:equiptment_upgrade_value(equipment_name, "quantity")
-		amt = managers.crime_spree:modify_value("PlayerManager:GetEquipmentMaxAmount", amt, params)
+		amt = managers.modifiers:modify_value("PlayerManager:GetEquipmentMaxAmount", amt, params)
 
 		table.insert(amount, amt)
 		table.insert(amount_digest, Application:digest_value(0, true))
