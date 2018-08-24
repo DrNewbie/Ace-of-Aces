@@ -9,15 +9,18 @@ Hooks:PostHook(SentryGunWeapon, "_fire_raycast", "AA_SentryGunWeapon_fire_raycas
 	if self._explode_arrow > 0 then
 		local _t = math.round(TimerManager:game():time())
 		if _t > self._explode_arrow_t then
-			local expl_pos = from_pos + Vector3(0, 0, 30)
-			local expl_dir = self._to - expl_pos + Vector3(0, 0, -100)
-			mvector3.normalize(expl_dir)
+			local mvec_from_pos = Vector3()
+			local mvec_direction = Vector3()
+			mvector3.set(mvec_from_pos, from_pos)
+			mvector3.set(mvec_direction, direction)
+			mvector3.multiply(mvec_direction, 100)
+			mvector3.add(mvec_from_pos, mvec_direction)
 			self._explode_arrow_t = _t + self._explode_arrow
 			if Network:is_client() then
 				local projectile_type_index = tweak_data.blackmarket:get_index_from_projectile_id("long_arrow_exp")
-				managers.network:session():send_to_host("request_throw_projectile", projectile_type_index, expl_pos, expl_dir)
+				managers.network:session():send_to_host("request_throw_projectile", projectile_type_index, mvec_from_pos, mvec_direction)
 			else
-				local unit = ProjectileBase.throw_projectile("long_arrow_exp", expl_pos, expl_dir, managers.network:session():local_peer():id())
+				local unit = ProjectileBase.throw_projectile("long_arrow_exp", mvec_from_pos, mvec_direction, managers.network:session():local_peer():id())
 				unit:base():set_weapon_unit(managers.player:equipped_weapon_unit())
 			end
 		end
