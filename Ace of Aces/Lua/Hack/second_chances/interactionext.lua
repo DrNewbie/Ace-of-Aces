@@ -40,13 +40,13 @@ end
 function UseInteractionExt:_timer_value()
 	if SpecialHackLock_can_hack_keycard(self) then
 		local has_equipment = not self._tweak_data.special_equipment and true or managers.player:has_special_equipment(self._tweak_data.special_equipment)
-		return not has_equipment and tweak_data.interaction.hack_keycard.timer or 0
+		return not has_equipment and tweak_data.interaction.hack_keycard.timer or 0.1
 	end
-	return self._tweak_data.timer or 0
+	return self._tweak_data.timer
 end
 
 function UseInteractionExt:interact_start(player, ...)
-	if SpecialHackLock_can_hack_keycard(self) and self.tweak_data ~= "hack_keycard" then
+	if SpecialHackLock_can_hack_keycard(self) then
 		local blocked, skip_hint, custom_hint = self:_interact_blocked(player)
 		local tweak_timer = tweak_data.interaction.hack_keycard.timer or 0
 		local has_equipment = not self._tweak_data.special_equipment and true or managers.player:has_special_equipment(self._tweak_data.special_equipment)
@@ -75,7 +75,6 @@ function UseInteractionExt:interact_start(player, ...)
 end
 
 function UseInteractionExt:selected(...)
-	local Ans = SpecialHackLock_selected(self, ...)
 	if SpecialHackLock_can_hack_keycard(self) then
 		local has_equipment = not self._tweak_data.special_equipment and true or managers.player:has_special_equipment(self._tweak_data.special_equipment)
 		if not has_equipment then
@@ -85,7 +84,7 @@ function UseInteractionExt:selected(...)
 			})
 		end
 	end
-	return Ans
+	return SpecialHackLock_selected(self, ...)
 end
 
 function UseInteractionExt:_post_event(...)
@@ -108,10 +107,10 @@ Hooks:PostHook(UseInteractionExt, "_at_interact_interupt", 'SpecialHackLock_inte
 end)
 
 function UseInteractionExt:interact(player, ...)
-	if not self:can_interact(player) then
-		return
-	end
-	if SpecialHackLock_SkillAA() then
+	if SpecialHackLock_can_hack_keycard(self) then
+		if not self:can_interact(player) then
+			return
+		end
 		if self.tweak_data == "hack_keycard" then
 			if self._unit and alive(self._unit) and self._unit:base() then
 				self._unit:base():device_completed("key")
@@ -134,22 +133,22 @@ function UseInteractionExt:interact(player, ...)
 end
 
 function UseInteractionExt:can_interact(player, ...)
-	if self._host_only and not Network:is_server() then
-		return false
-	end
-	if self._disabled then
-		return false
-	end
-	if not self:_has_required_upgrade(alive(player) and player:movement() and player:movement().current_state_name and player:movement():current_state_name()) then
-		return false
-	end
-	if not self:_has_required_deployable() then
-		return false
-	end
-	if not self:_is_in_required_state(alive(player) and player:movement() and player:movement().current_state_name and player:movement():current_state_name()) then
-		return false
-	end
 	if SpecialHackLock_can_hack_keycard(self) then
+		if self._host_only and not Network:is_server() then
+			return false
+		end
+		if self._disabled then
+			return false
+		end
+		if not self:_has_required_upgrade(alive(player) and player:movement() and player:movement().current_state_name and player:movement():current_state_name()) then
+			return false
+		end
+		if not self:_has_required_deployable() then
+			return false
+		end
+		if not self:_is_in_required_state(alive(player) and player:movement() and player:movement().current_state_name and player:movement():current_state_name()) then
+			return false
+		end
 		return true
 	end
 	return SpecialHackLock_can_interact(self, player, ...)
