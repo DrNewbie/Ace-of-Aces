@@ -138,7 +138,7 @@ end)
 Hooks:PostHook(NewSkillTreeGui, "_update_description", "AADoDescUpdate", function(self, item)
 	local skill_id = item:skill_id()
 	local status = AceAces:Skill_in_AA(skill_id)
-	if status then
+	if AceAces.Skill_Tweak[skill_id] then
 		self:AAUpdateDescription(item)
 	end
 	item:AAMaxedIconSetVisible(status)
