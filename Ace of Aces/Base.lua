@@ -213,13 +213,6 @@ function AceAces:Load()
 		self.Settings = {"None"}
 		self:Save()
 	end
-	if self.Settings then
-		for id, _ in pairs(self.Settings) do
-			if not tostring(id):find("ID") then
-				self.Settings[id] = nil
-			end
-		end
-	end
 end
 
 AceAces:Load()

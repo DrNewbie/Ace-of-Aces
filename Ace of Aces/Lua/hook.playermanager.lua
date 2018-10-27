@@ -3,8 +3,10 @@ AceAces.ModPath = ModPath
 dofile(AceAces.ModPath.."Base.lua")
 
 function AceAces:Skill_in_AA(skill_id)
+	local profile = "PF_"..tostring(managers.multi_profile._global._current_profile)
+	self.Settings[profile] = self.Settings[profile] or {}
 	skill_id = tostring(skill_id)
-	for _, data in pairs(self.Settings) do
+	for _, data in pairs(self.Settings[profile]) do
 		if data and type(data.skill_id) == "string" and data.skill_id == skill_id then
 			return true
 		end
@@ -22,7 +24,9 @@ function AceAces:Skill_Apply()
 			managers.upgrades:unaquire(upgrade, UpgradesManager.AQUIRE_STRINGS[1])
 		end
 	end
-	for _, data_save in pairs(self.Settings) do
+	local profile = "PF_"..managers.multi_profile._global._current_profile
+	self.Settings[profile] = self.Settings[profile] or {}
+	for _, data_save in pairs(self.Settings[profile]) do
 		if self:Skill_in_AA(data_save.skill_id) then
 			for _, upgrade in pairs(self.Skill_Tweak[data_save.skill_id].upgrades) do
 				managers.upgrades:aquire(upgrade, false, UpgradesManager.AQUIRE_STRINGS[1])

@@ -4,7 +4,7 @@
 	"author" : "Dr_Newbie",
 	"contact" : "http://modwork.shop/21561",
 	"blt_version" : 2.0,
-	"version" : "61",
+	"version" : "62",
 	"priority" : 100,
 	"hooks" : [
 		{
@@ -90,6 +90,10 @@
 		{
 			"hook_id": "lib/units/enemies/cop/copmovement",
 			"script_path": "Lua/hook.copmovement.lua"
+		},
+		{
+			"hook_id": "lib/managers/multiprofilemanager",
+			"script_path": "Lua/hook.multiprofilemanager.lua"
 		}
 	]		
 }
