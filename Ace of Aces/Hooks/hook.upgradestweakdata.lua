@@ -340,7 +340,6 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 		upgrade = {
 			value = 1,
 			upgrade = "dead_take_up",
-			synced = true,
 			category = "sentry_gun"
 		}
 	}
@@ -351,7 +350,6 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 		upgrade = {
 			value = 1,
 			upgrade = "explode_arrow",
-			synced = true,
 			category = "sentry_gun"
 		}
 	}
@@ -363,7 +361,6 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 		upgrade = {
 			value = 2,
 			upgrade = "extra_ammo_multiplier",
-			synced = true,
 			category = "sentry_gun"
 		}
 	}
