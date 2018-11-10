@@ -45,7 +45,6 @@ Hooks:PostHook(PlayerManager, "aquire_upgrade", "AceAces_GiveSkillCheckAgain", f
 	else
 		if upgrade_data.upgrade and AceAces.Skill_Tweak_ids and AceAces.Skill_Tweak_ids[upgrade_data.upgrade] then
 			if not managers.skilltree:skill_completed(AceAces.Skill_Tweak_ids[upgrade_data.upgrade]) then
-				log(json.encode(upgrade_data))
 				self:unaquire_upgrade(upgrade_data)
 			end
 		end
@@ -55,7 +54,7 @@ end)
 Hooks:PostHook(PlayerManager, "on_headshot_dealt", "AceAces_Ply_on_headshot_dealt", function(self)
 	local t = Application:time()
 	if self._on_headshot_dealt_t and t < self._on_headshot_dealt_t then
-		local cdr = managers.player:upgrade_value("player", "headshot_regen_armor_cooldown_reduce", 0)
+		local cdr = self:upgrade_value("player", "headshot_regen_armor_cooldown_reduce", 0)
 		if cdr > 0 then
 			self._on_headshot_dealt_t = self._on_headshot_dealt_t - cdr
 		end
@@ -183,6 +182,14 @@ function PlayerManager:skill_dodge_chance(...)
 	if self:has_activate_temporary_upgrade("temporary", "increased_dodge") then
 		local upgrade_value = self:upgrade_value("temporary", "increased_dodge") or {0, 0}
 		Ans = Ans + upgrade_value[1]
+	end
+	if self:has_category_upgrade("player", "stamina_to_dodge") then
+		if self:local_player() and self:local_player():movement() then
+			local prec_stamina = 1 - (self:local_player():movement()._stamina / self:local_player():movement():_max_stamina())
+			local muilt = self:upgrade_value("player", "stamina_to_dodge") or 0
+			prec_stamina = prec_stamina * muilt
+			Ans = Ans + prec_stamina
+		end
 	end
 	return Ans
 end

@@ -188,10 +188,15 @@ AceAces.Skill_Tweak = {
 		upgrades = {
 			"saw_extra_ammo_multiplier_2"
 		}
-	},
+	},	
 	["ammo_reservoir"] = {
 		upgrades = {
 			"temporary_no_ammo_cost_repeat"
+		}
+	},
+	["jail_diet"] = {
+		upgrades = {
+			"player_stamina_to_dodge_1"
 		}
 	}
 }

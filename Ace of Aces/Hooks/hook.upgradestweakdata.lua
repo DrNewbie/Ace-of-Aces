@@ -444,4 +444,14 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 			category = "player"
 		}
 	}
+	self.values.player.stamina_to_dodge = {0.15}
+	self.definitions.player_stamina_to_dodge_1 = {
+		name_id = "player_stamina_to_dodge_1",
+		category = "feature",
+		upgrade = {
+			value = 1,
+			upgrade = "stamina_to_dodge",
+			category = "player"
+		}
+	}
 end)
