@@ -4,8 +4,4 @@
 	<AddFiles directory="Assets">
 		<texture path="guis/textures/pd2/skilltree_2/aceaces_symbol" force = "true"/>
 	</AddFiles>
-	<Hooks directory="Hooks">
-		<hook file="Block/achievmentmanager.lua" source_file="lib/managers/achievmentmanager"/>
-		<hook file="Block/networkmatchmakingsteam.lua" source_file="lib/network/matchmaking/networkmatchmakingsteam"/>
-	</Hooks>
 </table>
