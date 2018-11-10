@@ -20,7 +20,7 @@ function AceAces:Skill_Apply()
 	for skill_id, data in pairs(self.Skill_Tweak) do
 		for _, upgrade in pairs(data.upgrades) do
 			local upgrade_data = tweak_data.upgrades.definitions[upgrade] and tweak_data.upgrades.definitions[upgrade].upgrade
-			self.Skill_Tweak_ids[tostring(upgrade_data.upgrade)] = skill_id
+			self.Skill_Tweak_ids[upgrade_data.upgrade] = skill_id
 			managers.upgrades:unaquire(upgrade, UpgradesManager.AQUIRE_STRINGS[1])
 		end
 	end
@@ -40,9 +40,14 @@ Hooks:PreHook(PlayerManager, "aquire_default_upgrades", "AceAces_GiveSkill", fun
 end)
 
 Hooks:PostHook(PlayerManager, "aquire_upgrade", "AceAces_GiveSkillCheckAgain", function(self, upgrade_data)
-	if upgrade_data.upgrade and AceAces.Skill_Tweak_ids and AceAces.Skill_Tweak_ids[upgrade_data.upgrade] then
-		if not managers.skilltree:skill_completed(AceAces.Skill_Tweak_ids[upgrade_data.upgrade]) then
-			self:unaquire_upgrade(upgrade_data)
+	if upgrade_data.category == "player" and upgrade_data.upgrade == "extra_ammo_multiplier" then
+		--Some skill get remove cause bad coding.	
+	else
+		if upgrade_data.upgrade and AceAces.Skill_Tweak_ids and AceAces.Skill_Tweak_ids[upgrade_data.upgrade] then
+			if not managers.skilltree:skill_completed(AceAces.Skill_Tweak_ids[upgrade_data.upgrade]) then
+				log(json.encode(upgrade_data))
+				self:unaquire_upgrade(upgrade_data)
+			end
 		end
 	end
 end)
