@@ -171,7 +171,8 @@ AceAces.Skill_Tweak = {
 	},
 	["spotter_teamwork"] = {
 		upgrades = {
-			"head_shot_ammo_return_3"
+			"head_shot_ammo_return_3",
+			"head_shot_ammo_return_AA"
 		}
 	},
 	["joker"] = {

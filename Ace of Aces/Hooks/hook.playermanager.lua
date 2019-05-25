@@ -222,7 +222,7 @@ function PlayerManager:_on_enter_ammo_efficiency_event_AA()
 end
 
 Hooks:PreHook(PlayerManager, "_on_enter_ammo_efficiency_event", "AceAces_Ply_Post_on_enter_ammo_efficiency_event", function(self)
-	if not self._coroutine_mgr:is_running("ammo_efficiency") then
+	if self:has_category_upgrade("player", "head_shot_ammo_return_AA") and not self._coroutine_mgr:is_running("ammo_efficiency") then
 		local weapon_unit = self:equipped_weapon_unit()
 		if weapon_unit and weapon_unit:base():fire_mode() == "single" and weapon_unit:base():is_category("smg", "assault_rifle", "snp") then
 			self:_on_enter_ammo_efficiency_event_AA()

@@ -185,6 +185,17 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 			category = "player"
 		}
 	}
+	self.values.player.head_shot_ammo_return_AA = {true}
+	self.definitions.head_shot_ammo_return_AA = {
+		incremental = true,
+		name_id = "menu_head_shot_ammo_return_AA",
+		category = "feature",
+		upgrade = {
+			value = 1,
+			upgrade = "head_shot_ammo_return_AA",
+			category = "player"
+		}
+	}
 	self.values.player.hostage_health_regen_addend[3] = 0.090
 	self.definitions.player_hostage_health_regen_addend_3 = {
 		name_id = "menu_player_hostage_health_regen_addend",
