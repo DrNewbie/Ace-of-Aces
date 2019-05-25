@@ -173,7 +173,7 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 	self.values.player.head_shot_ammo_return[3] = {
 		headshots = 1,
 		ammo = 1,
-		time = 6
+		time = 0.25
 	}
 	self.definitions.head_shot_ammo_return_3 = {
 		incremental = true,
