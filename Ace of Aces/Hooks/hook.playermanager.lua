@@ -177,6 +177,7 @@ function PlayerManager:upgrade_value(category, upgrade, default)
 end
 
 AA_ply_skill_dodge_chance = AA_ply_skill_dodge_chance or PlayerManager.skill_dodge_chance
+
 function PlayerManager:skill_dodge_chance(...)
 	local Ans = AA_ply_skill_dodge_chance(self, ...)
 	if self:has_activate_temporary_upgrade("temporary", "increased_dodge") then
@@ -192,4 +193,26 @@ function PlayerManager:skill_dodge_chance(...)
 		end
 	end
 	return Ans
+end
+
+Hooks:PostHook(PlayerManager, "activate_temporary_upgrade", "AceAces_Ply_Post_activate_temporary_upgrade", function(self, id, var)
+	if id == "temporary" and var == "dmg_dampener_outnumbered_strong" and self:has_category_upgrade("temporary", "underdog_zed_time") and not self:has_activate_temporary_upgrade("temporary", "underdog_zed_time") then
+		local data = self:upgrade_value("temporary", "underdog_zed_time") or nil
+		if type(data) == "table" and math.random() <= data[1] then
+			self:activate_temporary_upgrade("temporary", "underdog_zed_time")
+			managers.time_speed:play_effect("underdog_zed_time", data[3])
+		end
+	end
+end)
+
+AA_ply_modify_value = AA_ply_modify_value or PlayerManager.modify_value
+
+function PlayerManager:modify_value(var1, var2, ...)
+	if type(var1) == "string" and var1 == "damage_taken" and type(var2) == "number" and self:has_activate_temporary_upgrade("temporary", "underdog_zed_time") then
+		local data = self:upgrade_value("temporary", "underdog_zed_time") or nil
+		if data then
+			var2 = var2 * (1 - data[4])
+		end
+	end
+	return AA_ply_modify_value(self, var1, var2, ...)
 end

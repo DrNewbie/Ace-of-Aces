@@ -38,6 +38,7 @@
 	"aceaces_portable_saw" : "You gain ##2## additional saw blades for the OVER9000 portable saw.",
 	"aceaces_ammo_reservoir" : "You have ##30%## chance to enter 'Bullet Storm' for ##3## seconds while standing next to any ammo bags.",
 	"aceaces_jail_diet" : "You gain an additional dodge while your stamina are not full.\nThe lower you have, the more you get.",
+	"aceaces_underdog" : "you have ##10%## chance to active ##ZEAL TIME##.",
 	"hud_int_hack_keycard" : "Interact to Hack System",
 	"hud_action_hack_keycard" : "Nowloading..."
 }

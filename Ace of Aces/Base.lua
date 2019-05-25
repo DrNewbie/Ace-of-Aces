@@ -198,6 +198,11 @@ AceAces.Skill_Tweak = {
 		upgrades = {
 			"player_stamina_to_dodge_1"
 		}
+	},
+	["underdog"] = {
+		upgrades = {
+			"underdog_zed_time_1"
+		}
 	}
 }
 

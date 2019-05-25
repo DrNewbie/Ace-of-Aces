@@ -451,4 +451,27 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 			category = "player"
 		}
 	}
+	self.values.temporary.underdog_zed_time = {
+		{
+			0.1,
+			6,
+			{
+				sustain = 6,
+				timer = "pausable",
+				speed = 0.25,
+				fade_in = 0.25,
+				fade_out = 0.8
+			},
+			0.33
+		}
+	}
+	self.definitions.underdog_zed_time_1 = {
+		name_id = "underdog_zed_time_1",
+		category = "temporary",
+		upgrade = {
+			value = 1,
+			upgrade = "underdog_zed_time",
+			category = "temporary"
+		}
+	}
 end)
