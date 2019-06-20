@@ -7,7 +7,7 @@ function AceAces:Skill_in_AA(skill_id)
 	self.Settings[profile] = self.Settings[profile] or {}
 	skill_id = tostring(skill_id)
 	for _, data in pairs(self.Settings[profile]) do
-		if data and type(data.skill_id) == "string" and data.skill_id == skill_id then
+		if data and type(data.skill_id) == "string" and data.skill_id == skill_id and managers.skilltree:skill_completed(skill_id) then
 			return true
 		end
 	end
