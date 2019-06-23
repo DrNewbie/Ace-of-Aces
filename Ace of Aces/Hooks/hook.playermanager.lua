@@ -66,7 +66,7 @@ AA_ply_run_and_punch = AA_ply_run_and_punch or PlayerManager.mod_movement_penalt
 function PlayerManager:mod_movement_penalty(...)
 	local Ans = AA_ply_run_and_punch(self, ...)
 	if self:has_category_upgrade("player", "run_and_punch") then		
-		if self:current_state() == "standard" and self:player_unit():movement()._current_state then
+		if self:current_state() == "standard" and self:player_unit() and self:player_unit():movement() and self:player_unit():movement()._current_state then
 			if self:player_unit():movement()._current_state:_is_meleeing() then
 				Ans = Ans * self:upgrade_value("player", "run_and_punch", 1)
 			end
