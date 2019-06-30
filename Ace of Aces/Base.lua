@@ -105,7 +105,8 @@ AceAces.Skill_Tweak = {
 	},
 	["expert_handling"] = {
 		upgrades = {
-			"pistol_reload_speed_bonus_1"
+			"pistol_reload_speed_bonus_1",
+			"pistol_stacked_accuracy_bonus_2"
 		}
 	},
 	["dance_instructor"] = {

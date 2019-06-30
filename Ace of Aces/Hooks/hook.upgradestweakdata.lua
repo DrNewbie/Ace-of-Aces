@@ -238,8 +238,8 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 	}
 	self.values.pistol.stacking_hit_damage_multiplier[3] = {
 		max_stacks = 10,
-		max_time = self.values.pistol.stacking_hit_damage_multiplier[2].max_time,
-		damage_bonus = self.values.pistol.stacking_hit_damage_multiplier[2].damage_bonus
+		max_time = 4,
+		damage_bonus = 1.2
 	}
 	self.definitions.pistol_stacking_hit_damage_multiplier_3 = {
 		name_id = "menu_pistol_stacking_hit_damage_multiplier",
@@ -271,6 +271,17 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 		upgrade = {
 			value = 1,
 			upgrade = "reload_speed_bonus",
+			category = "pistol"
+		}
+	}
+	self.values.pistol.stacked_accuracy_bonus[2] = self.values.pistol.stacked_accuracy_bonus[1]
+	self.values.pistol.stacked_accuracy_bonus[2].max_stacks = 8
+	self.definitions.pistol_stacked_accuracy_bonus_2 = {
+		name_id = "menu_pistol_stacked_accuracy_bonus",
+		category = "feature",
+		upgrade = {
+			value = 2,
+			upgrade = "stacked_accuracy_bonus",
 			category = "pistol"
 		}
 	}
