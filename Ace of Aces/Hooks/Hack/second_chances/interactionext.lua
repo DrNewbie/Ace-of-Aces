@@ -5,6 +5,8 @@ SpecialHackLock_selected = SpecialHackLock_selected or UseInteractionExt.selecte
 SpecialHackLock_can_select = SpecialHackLock_can_select or UseInteractionExt.can_select
 SpecialHackLock_can_interact = SpecialHackLock_can_interact or UseInteractionExt.can_interact
 
+AceAces.UseHackKeycard = AceAces.UseHackKeycard or true
+
 function SpecialHackLock_SkillAA()
 	return managers.player:has_category_upgrade("player", "pick_lock_so_hard")
 end
@@ -17,13 +19,13 @@ function SpecialHackLock_ChancgeList(id)
 end
 
 function SpecialHackLock_CheckList(id)
-	if id == "hack_keycard" then
-		return true
-	end
 	return SpecialHackLock_ChancgeList(id)
 end
 
 function SpecialHackLock_can_hack_keycard(them)
+	if not AceAces.UseHackKeycard then
+		return false
+	end
 	if type(them) == "table" and them.tweak_data and SpecialHackLock_CheckList(them.tweak_data) then
 		return SpecialHackLock_SkillAA()
 	end
@@ -39,8 +41,7 @@ end
 
 function UseInteractionExt:_timer_value()
 	if SpecialHackLock_can_hack_keycard(self) then
-		local has_equipment = not self._tweak_data.special_equipment and true or managers.player:has_special_equipment(self._tweak_data.special_equipment)
-		return not has_equipment and tweak_data.interaction.hack_keycard.timer or 0.1
+		return tweak_data.interaction.hack_keycard.timer
 	end
 	return self._tweak_data.timer
 end
@@ -102,7 +103,7 @@ end)
 
 Hooks:PostHook(UseInteractionExt, "_at_interact_interupt", 'SpecialHackLock_interact_interupt', function(self, player)
 	if SpecialHackLock_can_hack_keycard(self) then
-		player:base():set_detection_multiplier("hack_keycard", 1)
+		player:base():set_detection_multiplier("hack_keycard", 0.5)
 	end
 end)
 
