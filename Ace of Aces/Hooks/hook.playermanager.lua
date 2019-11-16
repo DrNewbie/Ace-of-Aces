@@ -192,6 +192,9 @@ function PlayerManager:skill_dodge_chance(...)
 			Ans = Ans + prec_stamina
 		end
 	end
+	if tostring(self._current_state) == "driving" then
+		Ans = Ans + self:upgrade_value("player", "vehicle_dodge_chance", 0)
+	end
 	return Ans
 end
 

@@ -496,4 +496,67 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 			category = "temporary"
 		}
 	}
+	self.values.player.health_damage_reduction[3] = 0.999
+	self.definitions.player_health_damage_reduction_reverse = {
+		name_id = "menu_player_health_damage_reduction_reverse",
+		category = "feature",
+		upgrade = {
+			value = 3,
+			upgrade = "health_damage_reduction",
+			category = "player"
+		}
+	}
+	self.values.player.max_health_reduction[2] = 1
+	self.definitions.player_max_health_reduction_reverse = {
+		name_id = "menu_player_max_health_reduction_reverse",
+		category = "feature",
+		upgrade = {
+			value = 2,
+			upgrade = "max_health_reduction",
+			category = "player"
+		}
+	}
+	self.values.player.health_multiplier[2] = 2.5
+	self.definitions.player_health_multiplier_2 = {
+		name_id = "menu_player_health_multiplier",
+		category = "feature",
+		upgrade = {
+			value = 2,
+			upgrade = "health_multiplier",
+			category = "player"
+		}
+	}
+	self.values.player.messiah_revive_from_bleed_out[2] = 2
+	self.values.player.messiah_revive_from_bleed_out[3] = 3
+	self.definitions.player_messiah_revive_from_bleed_out_3 = {
+		name_id = "menu_player_pistol_revive_from_bleed_out",
+		category = "feature",
+		upgrade = {
+			value = 3,
+			upgrade = "messiah_revive_from_bleed_out",
+			category = "player"
+		}
+	}
+	self.values.player.crouch_dodge_chance[3] = 0.1
+	self.definitions.player_crouch_dodge_chance_3 = {
+		name_id = "menu_player_crouch_dodge_chance",
+		category = "feature",
+		upgrade = {
+			value = 3,
+			upgrade = "crouch_dodge_chance",
+			category = "player"
+		}
+	}
+	self.values.player.vehicle_dodge_chance = {
+		0.15
+	}
+	self.definitions.player_vehicle_dodge_chance_1 = {
+		name_id = "menu_player_vehicle_dodge_chance",
+		category = "feature",
+		upgrade = {
+			value = 1,
+			upgrade = "vehicle_dodge_chance",
+			category = "player"
+		}
+	}
 end)

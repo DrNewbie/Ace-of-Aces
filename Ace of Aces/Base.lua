@@ -205,6 +205,24 @@ AceAces.Skill_Tweak = {
 		upgrades = {
 			"underdog_zed_time_1"
 		}
+	},
+	["frenzy"] = {
+		upgrades = {
+			"player_health_damage_reduction_reverse",
+			"player_max_health_reduction_reverse",
+			"player_health_multiplier_2"
+		}
+	},
+	["messiah"] = {
+		upgrades = {
+			"player_messiah_revive_from_bleed_out_3"
+		}
+	},
+	["sprinter"] = {
+		upgrades = {
+			"player_crouch_dodge_chance_3",
+			"player_vehicle_dodge_chance_1",
+		}
 	}
 }
 
