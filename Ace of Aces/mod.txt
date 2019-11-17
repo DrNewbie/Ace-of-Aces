@@ -4,7 +4,7 @@
   "author": "Dr_Newbie",
   "contact": "http://modwork.shop/21561",
   "blt_version": 2,
-  "version": "75",
+  "version": "76",
   "priority": 100,
   "hooks": [
     {
@@ -109,6 +109,16 @@
       "run_in_menu": false,
       "run_in_game": true,
       "localized": false
+    }
+  ],
+  "updates": [
+    {
+      "identifier": "AceAceGithubUpdate",
+      "host": {
+        "meta": "https://drnewbie.github.io/Ace-of-Aces/Release/AceAceGithubUpdate.meta.json",
+        "download": "https://drnewbie.github.io/Ace-of-Aces/Release/AceAceGithubUpdate.zip",
+        "patchnotes": "https://github.com/DrNewbie/Ace-of-Aces/commits/master"
+      }
     }
   ]
 }

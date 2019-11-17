@@ -496,23 +496,29 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 			category = "temporary"
 		}
 	}
-	self.values.player.health_damage_reduction[3] = 0.999
-	self.definitions.player_health_damage_reduction_reverse = {
-		name_id = "menu_player_health_damage_reduction_reverse",
+	--reduce dmg from lose MAX HP
+	self.values.player.health_damage_reduction_forced = {
+		0.999
+	}
+	self.definitions.player_health_damage_reduction_forced = {
+		name_id = "menu_player_health_damage_reduction_forced",
 		category = "feature",
 		upgrade = {
-			value = 3,
-			upgrade = "health_damage_reduction",
+			value = 1,
+			upgrade = "health_damage_reduction_forced",
 			category = "player"
 		}
 	}
-	self.values.player.max_health_reduction[2] = 1
-	self.definitions.player_max_health_reduction_reverse = {
-		name_id = "menu_player_max_health_reduction_reverse",
+	--lose MAX HP
+	self.values.player.max_health_reduction_forced = {
+		1
+	}
+	self.definitions.player_max_health_reduction_forced = {
+		name_id = "menu_player_max_health_reduction_forced",
 		category = "feature",
 		upgrade = {
-			value = 2,
-			upgrade = "max_health_reduction",
+			value = 1,
+			upgrade = "max_health_reduction_forced",
 			category = "player"
 		}
 	}
