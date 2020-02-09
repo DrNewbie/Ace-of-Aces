@@ -478,9 +478,9 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 			0.1,
 			6,
 			{
-				sustain = 6,
+				sustain = 12,
 				timer = "pausable",
-				speed = 0.25,
+				speed = 0.15,
 				fade_in = 0.25,
 				fade_out = 0.8
 			},

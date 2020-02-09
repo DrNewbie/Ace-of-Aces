@@ -161,8 +161,8 @@ end)
 
 AA_ply_upgrade_value = AA_ply_upgrade_value or PlayerManager.upgrade_value
 
-function PlayerManager:upgrade_value(category, upgrade, default)
-	local Ans = AA_ply_upgrade_value(self, category, upgrade, default)
+function PlayerManager:upgrade_value(category, upgrade, ...)
+	local Ans = AA_ply_upgrade_value(self, category, upgrade, ...)
 	if category == "pistol" and upgrade == "reload_speed_multiplier" and self:has_category_upgrade("pistol", "reload_speed_bonus") and self:has_category_upgrade("pistol", "stacked_accuracy_bonus") then	
 		local desperado = self:get_property("desperado", 1)
 		if (Ans + 1 - desperado) > Ans then
@@ -178,6 +178,9 @@ function PlayerManager:upgrade_value(category, upgrade, default)
 	end
 	if category == "player" and upgrade == "max_health_reduction" and self:has_category_upgrade("player", "max_health_reduction_forced")then
 		Ans = self:upgrade_value("player", "max_health_reduction_forced", 1)
+	end
+	if category == "player" and upgrade == "movement_speed_multiplier" and self:has_activate_temporary_upgrade("temporary", "underdog_zed_time") then
+		Ans = Ans * 2
 	end
 	return Ans
 end
@@ -210,6 +213,11 @@ Hooks:PostHook(PlayerManager, "activate_temporary_upgrade", "AceAces_Ply_Post_ac
 		if type(data) == "table" and math.random() <= data[1] then
 			self:activate_temporary_upgrade("temporary", "underdog_zed_time")
 			managers.time_speed:play_effect("underdog_zed_time", data[3])
+			HudChallengeNotification.queue(
+				"["..managers.localization:to_upper_text("aceaces_zealtime_name").."]",
+				managers.localization:text("aceaces_zealtime_desc"),
+				"equipment_gasoline"
+			)
 		end
 	end
 end)

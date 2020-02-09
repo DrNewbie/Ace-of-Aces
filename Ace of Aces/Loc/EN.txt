@@ -39,6 +39,8 @@
 	"aceaces_ammo_reservoir" : "You have ##30%## chance to enter 'Bullet Storm' for ##3## seconds while standing next to any ammo bags.",
 	"aceaces_jail_diet" : "You gain an additional dodge while your stamina are not full.\nThe lower you have, the more you get.",
 	"aceaces_underdog" : "You have ##10%## chance to active ##ZEAL TIME##.",
+	"aceaces_zealtime_name" : "Zeal Ttime",
+	"aceaces_zealtime_desc" : "Timespeed is reduced 85% and your speed are increased 100%.",
 	"aceaces_frenzy" : "Damage taken is now reduced by ##0.1%##, but your maximum health is now increased by ##150%##.",
 	"aceaces_messiah" : "You now have ##3## charges.",
 	"aceaces_sprinter" : "You have a ##10%## increased chance to dodge while crouching. You gain ##15%## chance to dodge while in a vehicle.",
