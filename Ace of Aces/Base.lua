@@ -223,6 +223,12 @@ AceAces.Skill_Tweak = {
 			"player_crouch_dodge_chance_3",
 			"player_vehicle_dodge_chance_1",
 		}
+	},
+	["far_away"] = {
+		upgrades = {
+			"shotgun_no_falloff",
+			"shotgun_more_bullet"
+		}
 	}
 }
 

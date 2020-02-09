@@ -565,4 +565,28 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 			category = "player"
 		}
 	}
+	self.values.shotgun.shotgun_no_falloff = {
+		true
+	}
+	self.definitions.shotgun_no_falloff = {
+		name_id = "menu_shotgun_no_falloff",
+		category = "feature",
+		upgrade = {
+			value = 1,
+			upgrade = "shotgun_no_falloff",
+			category = "shotgun"
+		}
+	}
+	self.values.shotgun.shotgun_more_bullet = {
+		1
+	}
+	self.definitions.shotgun_more_bullet = {
+		name_id = "menu_shotgun_more_bullet",
+		category = "feature",
+		upgrade = {
+			value = 1,
+			upgrade = "shotgun_more_bullet",
+			category = "shotgun"
+		}
+	}
 end)
