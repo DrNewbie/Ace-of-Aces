@@ -16,7 +16,7 @@ AceAces.Skill_Tweak = {
 	},
 	["feign_death"] = {
 		upgrades = {
-			"player_cheat_death_chance_3"
+			"player_cheat_death_chance_4"
 		}
 	},
 	["bandoliers"] = {
