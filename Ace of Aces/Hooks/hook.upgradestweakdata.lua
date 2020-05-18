@@ -10,8 +10,8 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 			category = "player"
 		}
 	}
-	self.values.player.cheat_death_chance[3] = self.values.player.cheat_death_chance[2] + 0.3
-	self.definitions.player_cheat_death_chance_3 = {
+	self.values.player.cheat_death_chance[4] = self.values.player.cheat_death_chance[2] + 0.3
+	self.definitions.player_cheat_death_chance_4 = {
 		name_id = "menu_player_cheat_death_chance",
 		category = "feature",
 		upgrade = {
