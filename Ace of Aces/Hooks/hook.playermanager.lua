@@ -20,16 +20,22 @@ function AceAces:Skill_Apply()
 	for skill_id, data in pairs(self.Skill_Tweak) do
 		for _, upgrade in pairs(data.upgrades) do
 			local upgrade_data = tweak_data.upgrades.definitions[upgrade] and tweak_data.upgrades.definitions[upgrade].upgrade
-			self.Skill_Tweak_ids[upgrade_data.upgrade] = skill_id
-			managers.upgrades:unaquire(upgrade, UpgradesManager.AQUIRE_STRINGS[1])
+			if upgrade_data then
+				self.Skill_Tweak_ids[upgrade_data.upgrade] = skill_id
+				managers.upgrades:unaquire(upgrade, UpgradesManager.AQUIRE_STRINGS[1])
+			else
+				log("[AA]: No 'upgrade_data'? \t"..tostring(skill_id).."\t"..tostring(upgrade))
+			end
 		end
 	end
 	local profile = "PF_"..managers.multi_profile._global._current_profile
 	self.Settings[profile] = self.Settings[profile] or {}
 	for _, data_save in pairs(self.Settings[profile]) do
 		if self:Skill_in_AA(data_save.skill_id) then
-			for _, upgrade in pairs(self.Skill_Tweak[data_save.skill_id].upgrades) do
-				managers.upgrades:aquire(upgrade, false, UpgradesManager.AQUIRE_STRINGS[1])
+			if type(self.Skill_Tweak[data_save.skill_id]) == "table" and type(self.Skill_Tweak[data_save.skill_id].upgrades) == "table" then
+				for _, upgrade in pairs(self.Skill_Tweak[data_save.skill_id].upgrades) do
+					managers.upgrades:aquire(upgrade, false, UpgradesManager.AQUIRE_STRINGS[1])
+				end
 			end
 		end
 	end
