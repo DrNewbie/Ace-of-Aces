@@ -275,7 +275,7 @@ Hooks:PostHook(PlayerManager, "update", "AceAces_"..Idstring("AceAces_ply_update
 		if type(self.__alt_jammer_data) == "table" then
 			if self.__alt_jammer_data.t > t then
 				if not self.__alt_jammer_data.dt then
-					self.__alt_jammer_data.dt = 1.5
+					self.__alt_jammer_data.dt = 0.5
 					ECMJammerBase._detect_and_give_dmg(self:player_unit():position(), nil, self:player_unit(), 2500)
 				else
 					self.__alt_jammer_data.dt = self.__alt_jammer_data.dt - dt
