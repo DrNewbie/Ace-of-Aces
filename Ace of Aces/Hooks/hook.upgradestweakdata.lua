@@ -589,4 +589,19 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 			category = "shotgun"
 		}
 	}
+	self.values.player.frequently_addition_feedback_ecm = {
+		{
+			cd = 10,
+			duration = 3
+		}
+	}
+	self.definitions.frequently_feedback_ecm_1 = {
+		name_id = "menu_player_frequently_feedback_ecm_1",
+		category = "feature",
+		upgrade = {
+			value = 1,
+			upgrade = "frequently_addition_feedback_ecm",
+			category = "player"
+		}
+	}
 end)

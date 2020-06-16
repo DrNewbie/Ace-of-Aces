@@ -229,6 +229,11 @@ AceAces.Skill_Tweak = {
 			"shotgun_no_falloff",
 			"shotgun_more_bullet"
 		}
+	},
+	["ecm_2x"] = {
+		upgrades = {
+			"frequently_feedback_ecm_1"
+		}
 	}
 }
 

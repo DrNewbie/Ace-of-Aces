@@ -252,3 +252,61 @@ Hooks:PreHook(PlayerManager, "_on_enter_ammo_efficiency_event", "AceAces_Ply_Pos
 		end
 	end
 end)
+
+function PlayerManager:_attempt_alt_pocket_ecm_jammer()
+	if type(self.__alt_ecm_jammer) == "table" and type(self.__alt_ecm_jammer.duration) == "number" and type(self.__alt_ecm_jammer.cd) == "number" then
+		if managers.groupai and not managers.groupai:state():whisper_mode() then
+			managers.hud:activate_teammate_ability_radial(HUDManager.PLAYER_PANEL, self.__alt_ecm_jammer.duration)
+			self.__alt_jammer_data = {
+				effect = "feedback",
+				t = TimerManager:game():time() + self.__alt_ecm_jammer.duration,
+				interval = 1.5,
+				range = 2500,
+				sound = self:player_unit():sound():play("ecm_jammer_puke_signal")
+			}
+			return true
+		end
+	end
+	return false
+end
+
+Hooks:PostHook(PlayerManager, "update", "AceAces_"..Idstring("AceAces_ply_update_alt_pocket_ecm_jammer"):key(), function(self, t ,dt)
+	if self:player_unit() and self:player_unit():movement() then
+		if type(self.__alt_jammer_data) == "table" then
+			if self.__alt_jammer_data.t > t then
+				if not self.__alt_jammer_data.dt then
+					self.__alt_jammer_data.dt = 1.5
+					ECMJammerBase._detect_and_give_dmg(self:player_unit():position(), nil, self:player_unit(), 2500)
+				else
+					self.__alt_jammer_data.dt = self.__alt_jammer_data.dt - dt
+					if self.__alt_jammer_data.dt < 0 then
+						self.__alt_jammer_data.dt = nil
+					end
+				end
+			else
+				local _ = self.__alt_jammer_data.sound and self.__alt_jammer_data.sound:stop()
+				self:player_unit():sound():play("ecm_jammer_puke_signal_stop")
+				self.__alt_jammer_data = nil
+			end
+		else
+			if self.__alt_ecm_jammer then
+				if self.__alt_ecm_jammer.cd_dt then
+					self.__alt_ecm_jammer.cd_dt = self.__alt_ecm_jammer.cd_dt - dt
+					if self.__alt_ecm_jammer.cd_dt < 0 then
+						self.__alt_ecm_jammer.cd_dt = nil
+					end
+				else
+					self.__alt_ecm_jammer.cd_dt = self.__alt_ecm_jammer.cd
+					self:_attempt_alt_pocket_ecm_jammer()
+				end
+			end
+		end
+	end
+end)
+
+Hooks:PostHook(PlayerManager, "init_finalize", "AceAces_"..Idstring("AceAces_post_init_finalize_alt_pocket_ecm_jammer"):key(), function(self)
+	if self:has_category_upgrade("player", "frequently_addition_feedback_ecm") then
+		self.__alt_ecm_jammer = self:upgrade_value("player", "frequently_addition_feedback_ecm")
+		self.__alt_ecm_jammer.cd_dt = 3
+	end
+end)
