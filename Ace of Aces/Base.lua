@@ -234,6 +234,11 @@ AceAces.Skill_Tweak = {
 		upgrades = {
 			"frequently_feedback_ecm_1"
 		}
+	},
+	["perseverance"] = {
+		upgrades = {
+			"temporary_berserker_damage_multiplier_10"
+		}
 	}
 }
 

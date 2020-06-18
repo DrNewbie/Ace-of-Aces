@@ -46,6 +46,7 @@
 	"aceaces_sprinter" : "You have a ##10%## increased chance to dodge while crouching. You gain ##15%## chance to dodge while in a vehicle.",
 	"aceaces_far_away" : "The damage falloff for shotguns is reduced by ##100%##.\n##  (+100% bullets per shot)##",
 	"aceaces_ecm_2x" : "Outside of stealth activate ##3## seconds of ECM feedback every ##10## seconds.",
+	"aceaces_perseverance" : "Increases the duration of swan song by ##6## seconds. You now get a ##1%## movement penalty.",
 	"hud_int_hack_keycard" : "Interact to Hack System",
 	"hud_action_hack_keycard" : "Nowloading..."
 }

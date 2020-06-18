@@ -604,4 +604,18 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 			category = "player"
 		}
 	}
+	self.values.temporary.berserker_damage_multiplier[10] = {
+		1,
+		6 + self.values.temporary.berserker_damage_multiplier[2][2],
+		0.01
+	}
+	self.definitions.temporary_berserker_damage_multiplier_10 = {
+		name_id = "menu_temporary_berserker_damage_multiplier",
+		category = "temporary",
+		upgrade = {
+			value = 10,
+			upgrade = "berserker_damage_multiplier",
+			category = "temporary"
+		}
+	}
 end)
