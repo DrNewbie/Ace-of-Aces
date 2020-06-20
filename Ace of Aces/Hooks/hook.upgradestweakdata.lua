@@ -158,8 +158,8 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 		}
 	}
 	self.values.trip_mine.fire_trap[3] = {
-		self.values.trip_mine.fire_trap[2][1] + 15,
-		self.values.trip_mine.fire_trap[2][2] + 0.75
+		self.values.trip_mine.fire_trap[2][1] + 60,
+		self.values.trip_mine.fire_trap[2][2] + 3.75
 	}
 	self.definitions.trip_mine_fire_trap_3 = {
 		name_id = "menu_trip_mine_fire_trap",

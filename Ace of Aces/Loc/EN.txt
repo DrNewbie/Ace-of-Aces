@@ -13,7 +13,7 @@
 	"aceaces_combat_medic" : "Damage reduction is up to ##90%##.",
 	"aceaces_stockholm_syndrome" : "Shouting at a civilian has a chance for them to revive you.\nCharges can be replenished with a Doctor Bag and now has ##2## charges.",
 	"aceaces_jack_of_all_trades" : "You can now bring the normal amount of secondary deployables with you.",
-	"aceaces_fire_trap" : "Increases the fire effect duration by ##15## seconds and increases the fire effect radius by ##75%##.",
+	"aceaces_fire_trap" : "Increases the fire effect duration by ##60## seconds and increases the fire effect radius by ##375%##.",
 	"aceaces_black_marketeer" : "Having at least one of your own hostage or converted law enforcer makes you regenerate ##9%## health every ##5## seconds.",
 	"aceaces_martial_arts" : "You gain ##100%## additional movement speed while using melee.",
 	"aceaces_drop_soap" : "Each successfully counter attack will create an explosion.",
