@@ -19,7 +19,7 @@ Hooks:PreHook(AmmoClip, "_pickup", "AceAces_"..Idstring("AceAces_post_pickup_reg
 				self.__AA_picked_up = true
 				local __AA_data = managers.player:upgrade_value("player", "regain_throwable_from_ammo", nil)
 				if __AA_data and __AA_data.special then
-					local __chance = __AA_data.chance + __AA_data.special
+					local __chance = __AA_data.special
 					local __random = math.random()
 					if __random < __chance then
 						for id, weapon in pairs(inventory:available_selections()) do
