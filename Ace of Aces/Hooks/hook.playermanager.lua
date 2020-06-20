@@ -315,7 +315,7 @@ AA_movement_speed_multiplier_swansong = AA_movement_speed_multiplier_swansong or
 
 function PlayerManager:movement_speed_multiplier(...)
 	local __ans = AA_movement_speed_multiplier_swansong(self, ...)
-	if self:has_category_upgrade("temporary", "berserker_damage_multiplier") then
+	if self:has_category_upgrade("temporary", "berserker_damage_multiplier") and self:has_activate_temporary_upgrade("temporary", "berserker_damage_multiplier") then
 		local __swansong = self:upgrade_value("temporary", "berserker_damage_multiplier")
 		if type(__swansong) == "table" and type(__swansong[3]) == "number" then
 			__ans = __ans * __swansong[3]

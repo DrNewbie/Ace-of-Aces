@@ -23,7 +23,7 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 	self.values.player.regain_throwable_from_ammo[2] = {
 		chance = 0.05,
 		chance_inc = 1.01,
-		special = true
+		special = 0.15
 	}
 	self.definitions.player_regain_throwable_from_ammo_2 = {
 		name_id = "menu_player_regain_throwable_from_ammo",
