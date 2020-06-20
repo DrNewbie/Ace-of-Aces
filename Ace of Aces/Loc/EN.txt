@@ -47,6 +47,7 @@
 	"aceaces_far_away" : "The damage falloff for shotguns is reduced by ##100%##.\n##  (+100% bullets per shot)##",
 	"aceaces_ecm_2x" : "Outside of stealth activate ##3## seconds of ECM feedback every ##10## seconds.",
 	"aceaces_perseverance" : "Increases the duration of swan song by ##6## seconds. You now get a ##1%## movement penalty.",
+	"aceaces_hitman" : "Outside of stealth automatically units who near you.",
 	"hud_int_hack_keycard" : "Interact to Hack System",
 	"hud_action_hack_keycard" : "Nowloading..."
 }

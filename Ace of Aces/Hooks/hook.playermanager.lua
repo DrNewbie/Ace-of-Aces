@@ -323,3 +323,35 @@ function PlayerManager:movement_speed_multiplier(...)
 	end
 	return __ans
 end
+
+Hooks:PostHook(PlayerManager, "update", "AceAces_"..Idstring("AA_marked_enemy_bigger_area"):key(), function(self, t ,dt)
+	if self:player_unit() and self:player_unit():movement() and type(self.__marked_enemy_bigger_area) == "table" and type(self.__marked_enemy_bigger_area.area) == "number" and not managers.groupai:state():whisper_mode() then
+		if self.__marked_enemy_bigger_area.dt then
+			self.__marked_enemy_bigger_area.dt = self.__marked_enemy_bigger_area.dt - dt
+			if self.__marked_enemy_bigger_area.dt < 0 then
+				self.__marked_enemy_bigger_area.dt = nil
+			end
+		else
+			self.__marked_enemy_bigger_area.dt = 1.5
+			for _, u_data in pairs(managers.enemy:all_enemies()) do	
+				if u_data and u_data.unit and u_data.unit.contour and alive(u_data.unit) and self:player_unit() ~= u_data.unit then
+					local distance = mvector3.distance_sq(self:player_unit():position(), u_data.m_pos)
+					if distance < self.__marked_enemy_bigger_area.area then
+						local __enemy_type = u_data.unit:base().get_type and u_data.unit:base():get_type()
+						local __contour_type = self:get_contour_for_marked_enemy(__enemy_type)
+						u_data.unit:contour():add(__contour_type, true)
+					end
+				end
+			end
+		end
+	end
+end)
+
+Hooks:PostHook(PlayerManager, "init_finalize", "AceAces_"..Idstring("AceAces_post_init_finalize_marked_enemy_bigger_area"):key(), function(self)
+	if self:has_category_upgrade("player", "marked_enemy_bigger_area") then
+		self.__marked_enemy_bigger_area = {
+			area = self:upgrade_value("player", "marked_enemy_bigger_area"),
+			dt = nil
+		}
+	end
+end)

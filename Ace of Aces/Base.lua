@@ -239,6 +239,11 @@ AceAces.Skill_Tweak = {
 		upgrades = {
 			"temporary_berserker_damage_multiplier_10"
 		}
+	},
+	["hitman"] = {
+		upgrades = {
+			"player_marked_enemy_bigger_area_1"
+		}
 	}
 }
 

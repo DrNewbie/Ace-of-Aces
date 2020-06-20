@@ -618,4 +618,16 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 			category = "temporary"
 		}
 	}
+	self.values.player.marked_enemy_bigger_area = {
+		2500 * 2500
+	}
+	self.definitions.player_marked_enemy_bigger_area_1 = {
+		name_id = "menu_player_marked_enemy_bigger_area_1",
+		category = "feature",
+		upgrade = {
+			value = 1,
+			upgrade = "marked_enemy_bigger_area",
+			category = "player"
+		}
+	}
 end)
