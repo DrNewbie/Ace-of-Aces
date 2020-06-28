@@ -209,8 +209,8 @@ AceAces.Skill_Tweak = {
 	["frenzy"] = {
 		upgrades = {
 			"player_health_damage_reduction_forced",
-			"player_max_health_reduction_forced",
-			"player_health_multiplier_2"
+			--"player_max_health_reduction_forced",
+			"player_max_health_reduction_10"
 		}
 	},
 	["messiah"] = {

@@ -497,15 +497,13 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 		}
 	}
 	--reduce dmg from lose MAX HP
-	self.values.player.health_damage_reduction_forced = {
-		0.999
-	}
+	self.values.player.health_damage_reduction[10] = 0.65
 	self.definitions.player_health_damage_reduction_forced = {
 		name_id = "menu_player_health_damage_reduction_forced",
 		category = "feature",
 		upgrade = {
-			value = 1,
-			upgrade = "health_damage_reduction_forced",
+			value = 10,
+			upgrade = "health_damage_reduction",
 			category = "player"
 		}
 	}
@@ -522,13 +520,13 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 			category = "player"
 		}
 	}
-	self.values.player.health_multiplier[2] = 2.5
-	self.definitions.player_health_multiplier_2 = {
-		name_id = "menu_player_health_multiplier",
+	self.values.player.max_health_reduction[10] = 0.49
+	self.definitions.player_max_health_reduction_10 = {
+		name_id = "menu_player_max_health_reduction",
 		category = "feature",
 		upgrade = {
-			value = 2,
-			upgrade = "health_multiplier",
+			value = 10,
+			upgrade = "max_health_reduction",
 			category = "player"
 		}
 	}
