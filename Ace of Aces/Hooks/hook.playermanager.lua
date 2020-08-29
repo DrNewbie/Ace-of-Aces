@@ -182,7 +182,7 @@ function PlayerManager:upgrade_value(category, upgrade, ...)
 	if category == "player" and upgrade == "health_damage_reduction" and self:has_category_upgrade("player", "health_damage_reduction_forced") then
 		Ans = self:upgrade_value("player", "health_damage_reduction_forced", 1)
 	end
-	if category == "player" and upgrade == "max_health_reduction" and self:has_category_upgrade("player", "max_health_reduction_forced")then
+	if category == "player" and upgrade == "max_health_reduction" and self:has_category_upgrade("player", "max_health_reduction_forced") then
 		Ans = self:upgrade_value("player", "max_health_reduction_forced", 1)
 	end
 	if category == "player" and upgrade == "movement_speed_multiplier" and self:has_activate_temporary_upgrade("temporary", "underdog_zed_time") then
