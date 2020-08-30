@@ -174,19 +174,61 @@ function PlayerManager:upgrade_value(category, upgrade, ...)
 		if (Ans + 1 - desperado) > Ans then
 			Ans = Ans + 1 - desperado
 		end
-	end
-	if category == "pistol" and upgrade == "magazine_capacity_inc" and self:has_category_upgrade("pistol", "magazine_capacity_multiplier") then	
+	elseif category == "pistol" and upgrade == "magazine_capacity_inc" and self:has_category_upgrade("pistol", "magazine_capacity_multiplier") then	
 		local multiplier = self:upgrade_value("pistol", "magazine_capacity_multiplier", 1)
 		Ans = math.round(Ans * multiplier)
-	end
-	if category == "player" and upgrade == "health_damage_reduction" and self:has_category_upgrade("player", "health_damage_reduction_forced") then
+	elseif category == "player" and upgrade == "health_damage_reduction" and self:has_category_upgrade("player", "health_damage_reduction_forced") then
 		Ans = self:upgrade_value("player", "health_damage_reduction_forced", 1)
-	end
-	if category == "player" and upgrade == "max_health_reduction" and self:has_category_upgrade("player", "max_health_reduction_forced") then
+	elseif category == "player" and upgrade == "max_health_reduction" and self:has_category_upgrade("player", "max_health_reduction_forced") then
 		Ans = self:upgrade_value("player", "max_health_reduction_forced", 1)
-	end
-	if category == "player" and upgrade == "movement_speed_multiplier" and self:has_activate_temporary_upgrade("temporary", "underdog_zed_time") then
+	elseif category == "player" and upgrade == "movement_speed_multiplier" and self:has_activate_temporary_upgrade("temporary", "underdog_zed_time") then
 		Ans = Ans * 2
+	elseif category == "player" and upgrade == "armor_multiplier" and self:has_category_upgrade("player", "armor_multiplier_addon") then
+		Ans = Ans + self:upgrade_value("player", "armor_multiplier_addon", 0)
+	elseif category == "player" and upgrade == "cheat_death_chance" and self:has_category_upgrade("player", "cheat_death_chance_addon") then
+		Ans = Ans + self:upgrade_value("player", "cheat_death_chance_addon", 0)
+	elseif category == "player" and upgrade == "regain_throwable_from_ammo" and self:has_category_upgrade("player", "regain_throwable_from_ammo_addon") then
+		Ans = self:upgrade_value("player", "regain_throwable_from_ammo_addon", Ans)
+	elseif category == "player" and upgrade == "headshot_regen_armor_bonus" and self:has_category_upgrade("player", "headshot_regen_armor_bonus_addon") then
+		Ans = Ans + self:upgrade_value("player", "headshot_regen_armor_bonus_addon", 0)
+	elseif category == "player" and upgrade == "taser_malfunction" and self:has_category_upgrade("player", "taser_malfunction_addon") then
+		Ans = self:upgrade_value("player", "taser_malfunction_addon", Ans)
+	elseif category == "player" and upgrade == "armor_regen_time_mul" and self:has_category_upgrade("player", "armor_regen_time_mul_addon") then
+		Ans = self:upgrade_value("player", "armor_regen_time_mul_addon", Ans)
+	elseif category == "player" and upgrade == "increased_pickup_area" and self:has_category_upgrade("player", "increased_pickup_area_addon") then
+		Ans = self:upgrade_value("player", "increased_pickup_area_addon", Ans)
+	elseif category == "player" and upgrade == "revive_damage_reduction" and self:has_category_upgrade("player", "revive_damage_reduction_addon") then
+		Ans = self:upgrade_value("player", "revive_damage_reduction_addon", Ans)
+	elseif category == "player" and upgrade == "super_syndrome" and self:has_category_upgrade("player", "super_syndrome_addon") then
+		Ans = self:upgrade_value("player", "super_syndrome_addon", Ans)
+	elseif category == "trip_mine" and upgrade == "fire_trap" and self:has_category_upgrade("trip_mine", "fire_trap_addon") then
+		Ans = self:upgrade_value("trip_mine", "fire_trap_addon", Ans)
+	elseif category == "player" and upgrade == "head_shot_ammo_return" and self:has_category_upgrade("player", "head_shot_ammo_return_addon") then
+		Ans = self:upgrade_value("player", "head_shot_ammo_return_addon", Ans)
+	elseif category == "player" and upgrade == "hostage_health_regen_addend" and self:has_category_upgrade("player", "hostage_health_regen_addend_addon") then
+		Ans = self:upgrade_value("player", "hostage_health_regen_addend_addon", Ans)
+	elseif category == "player" and upgrade == "bleed_out_health_multiplier" and self:has_category_upgrade("player", "bleed_out_health_multiplier_addon") then
+		Ans = self:upgrade_value("player", "bleed_out_health_multiplier_addon", Ans)
+	elseif category == "pistol" and upgrade == "stacking_hit_damage_multiplier" and self:has_category_upgrade("pistol", "stacking_hit_damage_multiplier_addon") then
+		Ans = self:upgrade_value("pistol", "stacking_hit_damage_multiplier_addon", Ans)
+	elseif category == "pistol" and upgrade == "stacked_accuracy_bonus" and self:has_category_upgrade("pistol", "stacked_accuracy_bonus_addon") then
+		Ans = self:upgrade_value("pistol", "stacked_accuracy_bonus_addon", Ans)
+	elseif category == "pistol" and upgrade == "magazine_capacity_multiplier" and self:has_category_upgrade("pistol", "magazine_capacity_multiplier_addon") then
+		Ans = self:upgrade_value("pistol", "magazine_capacity_multiplier_addon", Ans)
+	elseif category == "temporary" and upgrade == "berserker_damage_multiplier" and self:has_category_upgrade("temporary", "berserker_damage_multiplier_addon") then
+		Ans = self:upgrade_value("temporary", "berserker_damage_multiplier_addon", Ans)
+	elseif category == "pistol" and upgrade == "spread_index_addend" and self:has_category_upgrade("pistol", "spread_index_addend_addon") then
+		Ans = self:upgrade_value("pistol", "spread_index_addend_addon", Ans)
+	elseif category == "player" and upgrade == "pick_lock_easy_speed_multiplier_addon" and self:has_category_upgrade("player", "pick_lock_easy_speed_multiplier_addon") then
+		Ans = self:upgrade_value("player", "pick_lock_easy_speed_multiplier_addon", Ans)
+	elseif category == "sentry_gun" and upgrade == "extra_ammo_multiplier" and self:has_category_upgrade("sentry_gun", "extra_ammo_multiplier_addon") then
+		Ans = self:upgrade_value("sentry_gun", "extra_ammo_multiplier_addon", Ans)
+	elseif category == "saw" and upgrade == "extra_ammo_multiplier" and self:has_category_upgrade("saw", "extra_ammo_multiplier_addon") then
+		Ans = Ans + self:upgrade_value("saw", "extra_ammo_multiplier_addon", 0)
+	elseif category == "player" and upgrade == "messiah_revive_from_bleed_out" and self:has_category_upgrade("player", "messiah_revive_from_bleed_out_addon") then
+		Ans = self:upgrade_value("player", "messiah_revive_from_bleed_out_addon", Ans)
+	elseif category == "player" and upgrade == "crouch_dodge_chance" and self:has_category_upgrade("player", "crouch_dodge_chance_addon") then
+		Ans = self:upgrade_value("player", "crouch_dodge_chance_addon", Ans)
 	end
 	return Ans
 end

@@ -11,22 +11,22 @@ AceAces.Skill_Tweak = {
 	},
 	["juggernaut"] = {
 		upgrades = {
-			"player_armor_multiplier_2"
+			"player_armor_multiplier_addon_1"
 		}
 	},
 	["feign_death"] = {
 		upgrades = {
-			"player_cheat_death_chance_10"
+			"player_cheat_death_chance_addon_1"
 		}
 	},
 	["bandoliers"] = {
 		upgrades = {
-			"player_regain_throwable_from_ammo_2"
+			"player_regain_throwable_from_ammo_addon_1"
 		}
 	},
 	["prison_wife"] = {
 		upgrades = {
-			"player_headshot_regen_armor_bonus_3",
+			"player_headshot_regen_armor_bonus_addon_1",
 			"player_headshot_regen_armor_cooldown_reduce"
 		}
 	},
@@ -38,7 +38,7 @@ AceAces.Skill_Tweak = {
 	["insulation"] = {
 		upgrades = {
 			"player_electro_boom",
-			"player_taser_malfunction_2"
+			"player_taser_malfunction_addon_1"
 		}
 	},
 	["body_expertise"] = {
@@ -48,23 +48,23 @@ AceAces.Skill_Tweak = {
 	},
 	["oppressor"] = {
 		upgrades = {
-			"player_armor_regen_time_mul_2"
+			"player_armor_regen_time_mul_addon_1"
 		}
 	},
 	["scavenging"] = {
 		upgrades = {
-			"player_increased_pickup_area_2"
+			"player_increased_pickup_area_addon_1"
 		}
 	},
 	["combat_medic"] = {
 		upgrades = {
-			"player_revive_damage_reduction_2"
+			"player_revive_damage_reduction_addon_1"
 		}
 	},
 	["stockholm_syndrome"] = {
 		upgrades = {
 			"player_civilian_reviver",
-			"player_super_syndrome_2",
+			"player_super_syndrome_addon_1",
 			"player_recharge_super_syndrome"
 		}
 	},
@@ -75,12 +75,12 @@ AceAces.Skill_Tweak = {
 	},
 	["fire_trap"] = {
 		upgrades = {
-			"trip_mine_fire_trap_3"
+			"trip_mine_fire_trap_addon_1"
 		}
 	},
 	["black_marketeer"] = {
 		upgrades = {
-			"player_hostage_health_regen_addend_3"
+			"player_hostage_health_regen_addend_addon_1"
 		}
 	},
 	["martial_arts"] = {
@@ -95,28 +95,28 @@ AceAces.Skill_Tweak = {
 	},
 	["nine_lives"] = {
 		upgrades = {
-			"player_bleed_out_health_multiplier_god"
+			"bleed_out_health_multiplier_addon_1"
 		}
 	},
 	["trigger_happy"] = {
 		upgrades = {
-			"pistol_stacking_hit_damage_multiplier_3"
+			"pistol_stacking_hit_damage_multiplier_addon_1"
 		}
 	},
 	["expert_handling"] = {
 		upgrades = {
 			"pistol_reload_speed_bonus_1",
-			"pistol_stacked_accuracy_bonus_2"
+			"pistol_stacked_accuracy_bonus_addon_1"
 		}
 	},
 	["dance_instructor"] = {
 		upgrades = {
-			"pistol_magazine_capacity_multiplier_1"
+			"pistol_magazine_capacity_multiplier_addon_1"
 		}
 	},
 	["equilibrium"] = {
 		upgrades = {
-			"pistol_spread_index_addend_2"
+			"pistol_spread_index_addend_addon_1"
 		}
 	},
 	["ammo_2x"] = {
@@ -136,7 +136,7 @@ AceAces.Skill_Tweak = {
 	},
 	["second_chances"] = {
 		upgrades = {
-			"player_pick_lock_easy_speed_multiplier_2",
+			"player_pick_lock_easy_speed_multiplier_addon_1",
 			"player_pick_lock_so_hard"
 		}
 	},
@@ -152,7 +152,7 @@ AceAces.Skill_Tweak = {
 	},
 	["sentry_targeting_package"] = {
 		upgrades = {
-			"sentry_gun_extra_ammo_multiplier_2"
+			"sentry_gun_extra_ammo_multiplier_addon_1"
 		}
 	},
 	["up_you_go"] = {
@@ -172,7 +172,7 @@ AceAces.Skill_Tweak = {
 	},
 	["spotter_teamwork"] = {
 		upgrades = {
-			"head_shot_ammo_return_3",
+			"head_shot_ammo_return_addon_1",
 			"head_shot_ammo_return_AA"
 		}
 	},
@@ -188,7 +188,7 @@ AceAces.Skill_Tweak = {
 	},
 	["portable_saw"] = {
 		upgrades = {
-			"saw_extra_ammo_multiplier_2"
+			"saw_extra_ammo_multiplier_addon_1"
 		}
 	},	
 	["ammo_reservoir"] = {
@@ -214,12 +214,12 @@ AceAces.Skill_Tweak = {
 	},
 	["messiah"] = {
 		upgrades = {
-			"player_messiah_revive_from_bleed_out_3"
+			"player_messiah_revive_from_bleed_out_addon_1"
 		}
 	},
 	["sprinter"] = {
 		upgrades = {
-			"player_crouch_dodge_chance_3",
+			"player_crouch_dodge_chance_addon_1",
 			"player_vehicle_dodge_chance_1",
 		}
 	},
@@ -236,7 +236,7 @@ AceAces.Skill_Tweak = {
 	},
 	["perseverance"] = {
 		upgrades = {
-			"temporary_berserker_damage_multiplier_10"
+			"temporary_berserker_damage_multiplier_addon_1"
 		}
 	},
 	["hitman"] = {
