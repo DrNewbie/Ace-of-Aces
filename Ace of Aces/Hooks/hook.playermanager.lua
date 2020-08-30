@@ -219,7 +219,7 @@ function PlayerManager:upgrade_value(category, upgrade, ...)
 		Ans = self:upgrade_value("temporary", "berserker_damage_multiplier_addon", Ans)
 	elseif category == "pistol" and upgrade == "spread_index_addend" and self:has_category_upgrade("pistol", "spread_index_addend_addon") then
 		Ans = self:upgrade_value("pistol", "spread_index_addend_addon", Ans)
-	elseif category == "player" and upgrade == "pick_lock_easy_speed_multiplier_addon" and self:has_category_upgrade("player", "pick_lock_easy_speed_multiplier_addon") then
+	elseif category == "player" and upgrade == "pick_lock_easy_speed_multiplier" and self:has_category_upgrade("player", "pick_lock_easy_speed_multiplier_addon") then
 		Ans = self:upgrade_value("player", "pick_lock_easy_speed_multiplier_addon", Ans)
 	elseif category == "sentry_gun" and upgrade == "extra_ammo_multiplier" and self:has_category_upgrade("sentry_gun", "extra_ammo_multiplier_addon") then
 		Ans = self:upgrade_value("sentry_gun", "extra_ammo_multiplier_addon", Ans)
