@@ -265,4 +265,8 @@ function AceAces:Load()
 	end
 end
 
+function AceAces:GetCurrentSet()
+	return "PF_"..tostring(managers.skilltree:get_selected_skill_switch())
+end
+
 AceAces:Load()

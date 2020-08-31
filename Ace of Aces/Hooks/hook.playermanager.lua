@@ -3,7 +3,7 @@ AceAces.ModPath = ModPath
 dofile(AceAces.ModPath.."Base.lua")
 
 function AceAces:Skill_in_AA(skill_id)
-	local profile = "PF_"..tostring(managers.multi_profile._global._current_profile)
+	local profile = self:GetCurrentSet()
 	self.Settings[profile] = self.Settings[profile] or {}
 	skill_id = tostring(skill_id)
 	for _, data in pairs(self.Settings[profile]) do
@@ -28,7 +28,7 @@ function AceAces:Skill_Apply()
 			end
 		end
 	end
-	local profile = "PF_"..managers.multi_profile._global._current_profile
+	local profile = self:GetCurrentSet()
 	self.Settings[profile] = self.Settings[profile] or {}
 	for _, data_save in pairs(self.Settings[profile]) do
 		if self:Skill_in_AA(data_save.skill_id) then

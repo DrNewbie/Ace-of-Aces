@@ -27,7 +27,7 @@ function AceAces:Yes(them, item)
 		QuickMenu:new("[Ace of Aces]", "##"..managers.localization:text(skill_data.name_id) .."## is not allowed to be 'Ace of Aces'", {{text = managers.localization:text("menu_back"), is_cancel_button = true}}, true)
 		return
 	end
-	local profile = "PF_"..managers.multi_profile._global._current_profile
+	local profile = self:GetCurrentSet()
 	self.Settings[profile] = self.Settings[profile] or {}
 	self.Settings[profile]["ID_"..tier] = {skill_id = skill_id, tree = tree, tier = tier, step = step}
 	QuickMenu:new("[Ace of Aces]", "##"..managers.localization:text(skill_data.name_id) .."## is 'Ace of Aces' now", {{text = managers.localization:text("menu_back"), is_cancel_button = true}}, true)
@@ -36,7 +36,7 @@ end
 
 function AceAces:No(them, item)
 	local skill_id = item:skill_id()
-	local profile = "PF_"..managers.multi_profile._global._current_profile	
+	local profile = self:GetCurrentSet()
 	self.Settings[profile] = self.Settings[profile] or {}
 	local tier = "ID_"..item:tier()
 	local skill_data = tweak_data.skilltree.skills[skill_id]
