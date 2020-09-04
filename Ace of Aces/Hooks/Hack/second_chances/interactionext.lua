@@ -154,3 +154,13 @@ function UseInteractionExt:can_interact(player, ...)
 	end
 	return SpecialHackLock_can_interact(self, player, ...)
 end
+
+Hooks:PreHook(BaseInteractionExt, "interact", 'Pre_SpecialHackLock_interacted', function(self, player)
+	if SpecialHackLock_can_hack_keycard(self) then
+		if SpecialHackLock_CheckList(self.tweak_data) then
+			self._tweak_data.old_special_equipment = self._tweak_data.special_equipment
+			self._tweak_data.special_equipment = nil
+		end
+	end
+	return true
+end)
