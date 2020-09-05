@@ -170,9 +170,9 @@ AA_ply_upgrade_value = AA_ply_upgrade_value or PlayerManager.upgrade_value
 function PlayerManager:upgrade_value(category, upgrade, ...)
 	local Ans = AA_ply_upgrade_value(self, category, upgrade, ...)
 	if category == "pistol" and upgrade == "reload_speed_multiplier" and self:has_category_upgrade("pistol", "reload_speed_bonus") and self:has_category_upgrade("pistol", "stacked_accuracy_bonus") then	
-		local desperado = self:get_property("desperado", 1)
-		if (Ans + 1 - desperado) > Ans then
-			Ans = Ans + 1 - desperado
+		local __desperado = math.log(self:get_property("desperado", 1)) * 2
+		if __desperado < 0 then
+			Ans = Ans + math.abs(__desperado)
 		end
 	elseif category == "pistol" and upgrade == "magazine_capacity_inc" and self:has_category_upgrade("pistol", "magazine_capacity_multiplier") then	
 		local multiplier = self:upgrade_value("pistol", "magazine_capacity_multiplier", 1)
