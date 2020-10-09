@@ -213,8 +213,8 @@ function PlayerManager:upgrade_value(category, upgrade, ...)
 		Ans = self:upgrade_value("pistol", "stacking_hit_damage_multiplier_addon", Ans)
 	elseif category == "pistol" and upgrade == "stacked_accuracy_bonus" and self:has_category_upgrade("pistol", "stacked_accuracy_bonus_addon") then
 		Ans = self:upgrade_value("pistol", "stacked_accuracy_bonus_addon", Ans)
-	elseif category == "pistol" and upgrade == "magazine_capacity_multiplier" and self:has_category_upgrade("pistol", "magazine_capacity_multiplier_addon") then
-		Ans = self:upgrade_value("pistol", "magazine_capacity_multiplier_addon", Ans)
+	elseif category == "pistol" and upgrade == "magazine_capacity_inc" and self:has_category_upgrade("pistol", "magazine_capacity_inc_addon") then
+		Ans = Ans + self:upgrade_value("pistol", "magazine_capacity_inc_addon", 0)
 	elseif category == "temporary" and upgrade == "berserker_damage_multiplier" and self:has_category_upgrade("temporary", "berserker_damage_multiplier_addon") then
 		Ans = self:upgrade_value("temporary", "berserker_damage_multiplier_addon", Ans)
 	elseif category == "pistol" and upgrade == "spread_index_addend" and self:has_category_upgrade("pistol", "spread_index_addend_addon") then

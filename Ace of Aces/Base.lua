@@ -111,7 +111,7 @@ AceAces.Skill_Tweak = {
 	},
 	["dance_instructor"] = {
 		upgrades = {
-			"pistol_magazine_capacity_multiplier_addon_1"
+			"pistol_magazine_capacity_inc_addon_1"
 		}
 	},
 	["equilibrium"] = {

@@ -322,15 +322,15 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 			category = "pistol"
 		}
 	}
-	self.values.pistol.magazine_capacity_multiplier_addon = {
-		2
+	self.values.pistol.magazine_capacity_inc_addon = {
+		12
 	}
-	self.definitions.pistol_magazine_capacity_multiplier_addon_1 = {
-		name_id = "menu_pistol_magazine_capacity_multiplier_addon",
+	self.definitions.pistol_magazine_capacity_inc_addon_1 = {
+		name_id = "menu_pistol_magazine_capacity_inc_addon",
 		category = "feature",
 		upgrade = {
 			value = 1,
-			upgrade = "magazine_capacity_multiplier_addon",
+			upgrade = "magazine_capacity_inc_addon",
 			category = "pistol"
 		}
 	}
