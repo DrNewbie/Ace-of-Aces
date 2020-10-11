@@ -1,24 +1,45 @@
 Hooks:PostHook(CopDamage, "damage_simple", "AA_Graze_Taser_Effect", function(self, attack_data)
 	if self._dead or self._invulnerable then
-		return
+	
+	else
+		if not managers.player:has_category_upgrade("snp", "graze_taser_effect") then
+		
+		else
+			if not attack_data or not attack_data.variant or attack_data.variant ~= "graze" or not attack_data.attacker_unit or not alive(attack_data.attacker_unit) or attack_data.attacker_unit ~= managers.player:player_unit() then
+			
+			else
+				local col_ray = {
+					ray = (attack_data.attacker_unit:position() - self._unit:position()):normalized(),
+					position = self._unit:position()
+				}
+				attack_data.damage = 0
+				attack_data.weapon_unit = attack_data.attacker_unit:inventory():equipped_unit()
+				attack_data.armor_piercing = true
+				attack_data.col_ray = col_ray
+				attack_data.attack_dir = col_ray.ray
+				attack_data.variant = "heavy"
+				self:damage_tase(attack_data)
+				if self.damage_fire then
+					self:damage_fire({
+						variant = "fire",
+						damage = 1,
+						weapon_unit = attack_data.weapon_unit,
+						attacker_unit = attack_data.attacker_unit,
+						col_ray = col_ray,
+						armor_piercing = true,
+						fire_dot_data = {
+							dot_trigger_chance = "100",
+							dot_damage = "10",
+							dot_length = "3.1",
+							dot_trigger_max_distance = "3000",
+							dot_tick_period = "0.5"
+						}
+					})
+				end
+				InstantExplosiveBulletBase:on_collision(col_ray, attack_data.weapon_unit, attack_data.attacker_unit, 1)
+			end
+		end
 	end
-	if not managers.player:has_category_upgrade("snp", "graze_taser_effect") then
-		return
-	end
-	if not attack_data or not attack_data.variant or attack_data.variant ~= "graze" or not attack_data.attacker_unit or not alive(attack_data.attacker_unit) or attack_data.attacker_unit ~= managers.player:player_unit() then
-		return
-	end
-	local col_ray = {
-		ray = (attack_data.attacker_unit:position() - self._unit:position()):normalized(),
-		position = self._unit:position()
-	}
-	attack_data.damage = 0
-	attack_data.weapon_unit = attack_data.attacker_unit:inventory():equipped_unit()
-	attack_data.armor_piercing = true
-	attack_data.col_ray = col_ray
-	attack_data.attack_dir = col_ray.ray
-	attack_data.variant = "heavy"
-	self:damage_tase(attack_data)
 end)
 
 Hooks:PostHook(CopDamage, "convert_to_criminal", "AA_joker_temp_invulnerable_init", function(self)
