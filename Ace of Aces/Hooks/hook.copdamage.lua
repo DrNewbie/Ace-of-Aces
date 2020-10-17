@@ -28,11 +28,11 @@ Hooks:PostHook(CopDamage, "damage_simple", "AA_Graze_Taser_Effect", function(sel
 						col_ray = col_ray,
 						armor_piercing = true,
 						fire_dot_data = {
-							dot_trigger_chance = "100",
-							dot_damage = "10",
-							dot_length = "3.1",
-							dot_trigger_max_distance = "3000",
-							dot_tick_period = "0.5"
+							dot_trigger_chance = 100,
+							dot_damage = 10,
+							dot_length = 8.1,
+							dot_trigger_max_distance = 3000,
+							dot_tick_period = 0.5
 						}
 					})
 				end

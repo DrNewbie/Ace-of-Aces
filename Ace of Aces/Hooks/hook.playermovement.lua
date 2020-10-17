@@ -10,6 +10,7 @@ function PlayerMovement:on_SPOOCed(enemy_unit)
 	local Ans = AA_on_SPOOCed(self, enemy_unit)
 	if tostring(Ans) == "countered" then
 		if managers.player:has_category_upgrade("player", "counter_strike_spooc_boom") then
+			local __pos = enemy_unit:movement():m_head_pos()
 			managers.explosion:play_sound_and_effects(
 				enemy_unit:movement():m_head_pos(),
 				math.UP,
@@ -35,6 +36,11 @@ function PlayerMovement:on_SPOOCed(enemy_unit)
 				damage = damage,
 				no_raycast_check_characters = false
 			})
+			for u_key, u_data in pairs(managers.enemy:all_enemies()) do
+				if u_data.unit and alive(u_data.unit) and u_data.unit:brain() and u_data.unit:brain().on_intimidated and mvector3.distance(u_data.unit:position(), __pos) <= 3000 then
+					u_data.unit:brain():set_logic("intimidated", {effect = 1})
+				end
+			end
 		end
 	end
 	return Ans
