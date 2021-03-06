@@ -38,7 +38,9 @@ function PlayerMovement:on_SPOOCed(enemy_unit)
 			})
 			for u_key, u_data in pairs(managers.enemy:all_enemies()) do
 				if u_data.unit and alive(u_data.unit) and u_data.unit:brain() and u_data.unit:brain().on_intimidated and mvector3.distance(u_data.unit:position(), __pos) <= 3000 then
-					u_data.unit:brain():set_logic("intimidated", {effect = 1})
+					if type(u_data.unit:brain()._logics) == "table" and u_data.unit:brain()._logics["intimidated"] then
+						u_data.unit:brain():set_logic("intimidated", {effect = 1})
+					end
 				end
 			end
 		end
