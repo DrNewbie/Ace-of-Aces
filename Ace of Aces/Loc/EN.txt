@@ -1,7 +1,7 @@
 {
 	"aceaces_own" : "##Ace of Aces##",
 	"aceaces_medic_2x" : "Your doctor bags have an additional ##2## more charges.",
-	"aceaces_juggernaut" : "You gain #50%## more armor.",
+	"aceaces_juggernaut" : "You gain ##50%## more armor.",
 	"aceaces_feign_death" : "The chance to get instantly revived is increased by another ##30%##",
 	"aceaces_bandoliers" : "The effect is expands to all weapon and and ammo types.",
 	"aceaces_prison_wife" : "You regenerate another ##25## armor for each successful headshot.\nCooldown is reduced ##1## second.",
