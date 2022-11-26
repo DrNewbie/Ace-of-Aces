@@ -2,9 +2,9 @@
   "name": "Ace of Aces",
   "description": "Upgrade the skill one more time.",
   "author": "Dr_Newbie",
-  "contact": "http://modwork.shop/21561",
+  "contact": "https://modworkshop.net/mod/21561",
   "blt_version": 2,
-  "version": "83.82",
+  "version": "84",
   "priority": 100,
   "hooks": [
     {
@@ -106,6 +106,10 @@
     {
       "hook_id": "lib/units/beings/player/playerinventory",
       "script_path": "Hooks/hook.playerinventory.lua"
+    },
+    {
+      "hook_id": "lib/units/equipment/first_aid_kit/firstaidkitbase",
+      "script_path": "Hooks/hook.firstaidkitbase.lua"
     }
   ],
   "keybinds": [

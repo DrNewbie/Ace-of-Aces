@@ -243,6 +243,11 @@ AceAces.Skill_Tweak = {
 		upgrades = {
 			"player_marked_enemy_bigger_area_1"
 		}
+	},
+	["tea_cookies"] = {
+		upgrades = {
+			"player_overheal_bonus_1"
+		}
 	}
 }
 

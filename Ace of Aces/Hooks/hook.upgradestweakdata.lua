@@ -703,4 +703,19 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 			category = "player"
 		}
 	}
+	self.values.player.aa_overheal_bonus = {
+		{
+			2,	--+100% HP
+			60	--overheal will fade away in exactly 60 seconds
+		}
+	}
+	self.definitions.player_overheal_bonus_1 = {
+		name_id = "menu_player_overheal_bonus_1",
+		category = "feature",
+		upgrade = {
+			value = 1,
+			upgrade = "aa_overheal_bonus",
+			category = "player"
+		}
+	}
 end)

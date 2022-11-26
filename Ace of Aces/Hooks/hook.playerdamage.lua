@@ -37,3 +37,34 @@ function PlayerDamage:_raw_max_armor(...)
 	end
 	return Ans
 end
+
+AA_plydmg_raw_max_health = AA_plydmg_raw_max_health or PlayerDamage._raw_max_health
+
+function PlayerDamage:_raw_max_health(...)
+	local Ans = AA_plydmg_raw_max_health(self, ...)
+	if self.__aa_overheal_bonus and self.__aa_overheal_bonus[3] then
+		Ans = Ans * self.__aa_overheal_bonus[3]
+	end
+	return Ans
+end
+
+function PlayerDamage:active_aa_overheal_bonus()
+	if managers.player:has_category_upgrade("player", "aa_overheal_bonus") then
+		self.__aa_overheal_bonus = managers.player:upgrade_value("player", "aa_overheal_bonus") or {0, 0, 0, 0}
+		self.__aa_overheal_bonus[3] = self.__aa_overheal_bonus[1]
+		self.__aa_overheal_bonus[4] = self.__aa_overheal_bonus[2]
+	end
+	return
+end
+
+Hooks:PostHook(PlayerDamage, "update", "AceAces_PlyDmg_OverHealBouns", function(self, unit, t, dt, ...)
+	if type(self.__aa_overheal_bonus) == "table" then
+		self.__aa_overheal_bonus[4] = self.__aa_overheal_bonus[4] - dt
+		self.__aa_overheal_bonus[3] = self.__aa_overheal_bonus[1] * (self.__aa_overheal_bonus[4]/self.__aa_overheal_bonus[2])
+		if self.__aa_overheal_bonus[3] <= 0 then
+			self.__aa_overheal_bonus = nil
+		else
+			self:set_health(self:get_real_health())
+		end
+	end
+end)
