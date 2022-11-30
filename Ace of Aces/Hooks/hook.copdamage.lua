@@ -9,6 +9,7 @@ Hooks:PostHook(CopDamage, "damage_simple", "AA_Graze_Taser_Effect", function(sel
 			
 			else
 				local col_ray = {
+					unit = self._unit,
 					ray = (attack_data.attacker_unit:position() - self._unit:position()):normalized(),
 					position = self._unit:position()
 				}
