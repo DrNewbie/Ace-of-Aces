@@ -20,7 +20,7 @@ Hooks:PostHook(CopDamage, "damage_simple", "AA_Graze_Taser_Effect", function(sel
 				attack_data.attack_dir = col_ray.ray
 				attack_data.variant = "heavy"
 				self:damage_tase(attack_data)
-				if self.damage_fire then
+				if type(self.damage_fire) == "function" then
 					self:damage_fire({
 						variant = "fire",
 						damage = 1,
@@ -37,7 +37,17 @@ Hooks:PostHook(CopDamage, "damage_simple", "AA_Graze_Taser_Effect", function(sel
 						}
 					})
 				end
-				InstantExplosiveBulletBase:on_collision(col_ray, attack_data.weapon_unit, attack_data.attacker_unit, 1)
+				if type(self.damage_tase) == "function" then
+					self:damage_tase({
+						damage = 1,
+						weapon_unit = attack_data.weapon_unit,
+						attacker_unit = attack_data.attacker_unit,
+						col_ray = col_ray,
+						armor_piercing = true,
+						attack_dir = col_ray.ray,
+						variant = "heavy"
+					})
+				end
 			end
 		end
 	end
