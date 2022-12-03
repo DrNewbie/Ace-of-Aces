@@ -24,13 +24,13 @@ function AceAces:Yes(them, item)
 	local step = them._skilltree:next_skill_step(skill_id)
 	local skill_data = tweak_data.skilltree.skills[skill_id]
 	if not self.Skill_Tweak[skill_id] then
-		QuickMenu:new("[Ace of Aces]", "##"..managers.localization:text(skill_data.name_id) .."## is not allowed to be 'Ace of Aces'", {{text = managers.localization:text("menu_back"), is_cancel_button = true}}, true)
+		QuickMenu:new("[Ace of Aces]", "'"..managers.localization:text(skill_data.name_id) .."' is not allowed to be 'Ace of Aces'", {{text = managers.localization:text("menu_back"), is_cancel_button = true}}, true)
 		return
 	end
 	local profile = self:GetCurrentSet()
 	self.Settings[profile] = self.Settings[profile] or {}
 	self.Settings[profile]["ID_"..tier] = {skill_id = skill_id, tree = tree, tier = tier, step = step}
-	QuickMenu:new("[Ace of Aces]", "##"..managers.localization:text(skill_data.name_id) .."## is 'Ace of Aces' now", {{text = managers.localization:text("menu_back"), is_cancel_button = true}}, true)
+	QuickMenu:new("[Ace of Aces]", "'"..managers.localization:text(skill_data.name_id) .."' is 'Ace of Aces' now", {{text = managers.localization:text("menu_back"), is_cancel_button = true}}, true)
 	self:Reload_Gui(them, item)
 end
 
@@ -42,7 +42,7 @@ function AceAces:No(them, item)
 	local skill_data = tweak_data.skilltree.skills[skill_id]
 	if self.Settings[profile][tier] and tostring(self.Settings[profile][tier].skill_id) == skill_id then
 		self.Settings[profile][tier] = {"None"}
-		QuickMenu:new("[Ace of Aces]", "##"..managers.localization:text(skill_data.name_id) .."## is not 'Ace of Aces' anymore", {{text = managers.localization:text("menu_back"), is_cancel_button = true}}, true)
+		QuickMenu:new("[Ace of Aces]", "'"..managers.localization:text(skill_data.name_id) .."' is not 'Ace of Aces' anymore", {{text = managers.localization:text("menu_back"), is_cancel_button = true}}, true)
 		self:Reload_Gui(them, item)
 	end
 end
@@ -103,7 +103,7 @@ Hooks:PostHook(NewSkillTreeGui, "invest_point", "AAClickEvent", function(self, i
 		return
 	end
 	if completed and AceAces.Skill_Tweak[skill_id] then
-		local menu_message = "Do you want to upgrade ##"..managers.localization:text(skill_data.name_id).."## to 'Ace of Aces'?"
+		local menu_message = "Do you want to upgrade '"..managers.localization:text(skill_data.name_id).."' to 'Ace of Aces'?"
 		local menu_options = {}
 		table.insert(menu_options,
 			{

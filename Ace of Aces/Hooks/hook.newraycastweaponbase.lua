@@ -6,13 +6,3 @@ function NewRaycastWeaponBase:get_add_head_shot_mul()
 	end
 	return AA_head_shot_add_free(self)
 end
-
-local AA_reload_speed_multiplier = NewRaycastWeaponBase.reload_speed_multiplier
-
-function NewRaycastWeaponBase:reload_speed_multiplier()
-	local multiplier = AA_reload_speed_multiplier(self)
-	if self._use_shotgun_reload and managers.player:has_category_upgrade("weapon", "put_that_in_faster") then
-		multiplier = multiplier + 1 - managers.player:upgrade_value("weapon", "put_that_in_faster", 1)
-	end
-	return multiplier
-end

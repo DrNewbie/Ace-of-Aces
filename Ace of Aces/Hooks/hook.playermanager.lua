@@ -229,6 +229,8 @@ function PlayerManager:upgrade_value(category, upgrade, ...)
 		Ans = self:upgrade_value("player", "messiah_revive_from_bleed_out_addon", Ans)
 	elseif category == "player" and upgrade == "crouch_dodge_chance" and self:has_category_upgrade("player", "crouch_dodge_chance_addon") then
 		Ans = self:upgrade_value("player", "crouch_dodge_chance_addon", Ans)
+	elseif category == "shotgun" and upgrade == "reload_speed_multiplier" and self:has_category_upgrade("weapon", "put_that_in_faster") then
+		Ans = Ans + self:upgrade_value("weapon", "put_that_in_faster", 0)
 	end
 	return Ans
 end
