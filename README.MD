@@ -1,4 +1,4 @@
-http://modwork.shop/21561
+https://modworkshop.net/mod/21561
 
 ![ScreenShot](https://modworkshop.net/mydownloads/previews/preview_7573_1513607823_8fc342c4ff4888d85d26f14f8780d1a8.png)
 
