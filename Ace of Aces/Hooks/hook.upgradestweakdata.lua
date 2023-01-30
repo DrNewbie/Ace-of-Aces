@@ -678,7 +678,7 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 	self.values.temporary.berserker_damage_multiplier_addon = {
 		{
 			1,
-			6 + self.values.temporary.berserker_damage_multiplier[2][2],
+			self.values.temporary.berserker_damage_multiplier[2][2] + 6,
 			0.01
 		}
 	}
