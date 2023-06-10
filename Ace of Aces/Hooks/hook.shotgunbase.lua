@@ -10,16 +10,26 @@ Hooks:PostHook(ShotgunBase, "setup_default", "AA_"..Idstring("PostHook:ShotgunBa
 	end
 	if managers.player:has_category_upgrade("shotgun", "shotgun_more_bullet") then
 		self._AA_shotgun_more_bullet_addon = managers.player:upgrade_value("shotgun", "shotgun_more_bullet", 0)
-		self.__old_fire_raycast = self._fire_raycast
 	end
 end)
 
-Hooks:PostHook(ShotgunBase, "_fire_raycast", "AA_"..Idstring("PostHook:ShotgunBase:_fire_raycast"):key(), function(self, ...)
-	if self.__old_fire_raycast and self._AA_shotgun_more_bullet_addon and not self._AA_shotgun_more_bullet_bool and managers.player:has_category_upgrade("shotgun", "shotgun_more_bullet") then
+local AA_shotgun_more_bullet_data = nil
+
+local old_fire_raycast = ShotgunBase._fire_raycast
+
+function ShotgunBase:_fire_raycast(...)
+	if self._AA_shotgun_more_bullet_addon and not self._AA_shotgun_more_bullet_bool and managers.player:has_category_upgrade("shotgun", "shotgun_more_bullet") then
 		self._AA_shotgun_more_bullet_bool = true
-		for i = 1, self._AA_shotgun_more_bullet_addon do
-			self:__old_fire_raycast(...)
+		AA_shotgun_more_bullet_data = nil
+		AA_shotgun_more_bullet_data = {...}
+		for __i = 1, self._AA_shotgun_more_bullet_addon do
+			DelayedCalls:Add("AA_shotgun_more_bullet_delay_"..__i, 0.05*__i, function()
+				if type(AA_shotgun_more_bullet_data) == "table" then
+					ShotgunBase.super._fire_raycast(self, unpack(AA_shotgun_more_bullet_data))
+				end
+			end)
 		end
 		self._AA_shotgun_more_bullet_bool = nil
 	end
-end)
+	return old_fire_raycast(self, ...)
+end

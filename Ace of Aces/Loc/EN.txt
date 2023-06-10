@@ -32,7 +32,7 @@
 	"aceaces_running_from_death" : "You gain a ##20%## dodge chance for ##10## seconds after being revived.",
 	"aceaces_up_you_go" : "You will now gain ##5## health every ##0.5## seconds for ##10## seconds after being revived.",
 	"aceaces_spotter_teamwork" : "Each headshot will refund ##1## bullet.\nCooldown: ##0.25## seconds.",
-	"aceaces_single_shot_ammo_return" : "Snipers that hit their target will tase and burn any enemies within a##100cm## radius around the bullet trajectory.",
+	"aceaces_single_shot_ammo_return" : "Snipers that hit their target will tase and burn any enemies within a ##100cm## radius around the bullet trajectory.",
 	"aceaces_joker" : "Your converted enemy gets ##0.8## seconds of invulnerability whenever they take damage.",
 	"aceaces_control_freak" : "You gain ##25%## armor for each converted enemy up to ##8## times.",
 	"aceaces_portable_saw" : "You gain ##2## additional saw blades for the OVE9000 portable saw.",
