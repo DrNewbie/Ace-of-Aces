@@ -274,4 +274,19 @@ function AceAces:GetCurrentSet()
 	return "PF_"..tostring(managers.skilltree:get_selected_skill_switch())
 end
 
+pcall(function()
+	BLTAssetManager:CreateEntry( 
+		Idstring("guis/textures/pd2/skilltree_2/aceaces_symbol"), 
+		Idstring("texture"), 
+		AceAces.ModPath.."/Assets/guis/textures/pd2/skilltree_2/aceaces_symbol.texture", 
+		nil 
+	)
+end)
+
+pcall(function()
+	Hooks:Add("LocalizationManagerPostInit", "AA_"..Idstring("load_localization_file"):key(), function(loc)
+		loc:load_localization_file(AceAces.ModPath.."/Loc/EN.txt")
+	end)
+end)
+
 AceAces:Load()
