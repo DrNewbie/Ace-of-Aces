@@ -399,3 +399,38 @@ Hooks:PostHook(PlayerManager, "init_finalize", "AceAces_"..Idstring("AceAces_pos
 		}
 	end
 end)
+
+Hooks:PostHook(PlayerManager, "init_finalize", "AceAces_"..Idstring("init:no_ammo_cost_repeat"):key(), function(self)
+	if self:has_category_upgrade("player", "no_ammo_cost_repeat") then
+		self.__no_ammo_cost_repeat_okay = true
+		self.__no_ammo_cost_repeat_data = self:upgrade_value("player", "no_ammo_cost_repeat") or {0, 0, 0}
+	end
+end)
+
+Hooks:PostHook(PlayerManager, "update", "AceAces_"..Idstring("loop:no_ammo_cost_repeat"):key(), function(self, t, dt, ...)
+	if self:player_unit() and self.__no_ammo_cost_repeat_okay then
+		if self.__no_ammo_cost_repeat_next_loop then
+			self.__no_ammo_cost_repeat_next_loop = self.__no_ammo_cost_repeat_next_loop - dt
+			if self.__no_ammo_cost_repeat_next_loop <= 0 then
+				self.__no_ammo_cost_repeat_next_loop = nil
+			end
+		else
+			self.__no_ammo_cost_repeat_next_loop = 1
+			local ply_unit = self:player_unit()
+			local nearby_units = World:find_units_quick("sphere", ply_unit:position(), 150, World:make_slot_mask(14)) or {}
+			for _, __unit in ipairs(nearby_units) do
+				if __unit and alive(__unit) and __unit:name() == Idstring("units/payday2/equipment/gen_equipment_ammobag/gen_equipment_ammobag") and not __unit:base()._empty then
+					local data = self.__no_ammo_cost_repeat_data
+					if type(data) == "table" and data[1] and data[2] and data[3] then
+						local __rnd = math.random()
+						if data[1] >= __rnd then
+							self.__no_ammo_cost_repeat_next_loop = data[3]
+							self:add_to_temporary_property("bullet_storm", data[2], 1)
+						end
+					end
+					break	--Once is enough
+				end
+			end
+		end
+	end
+end)
