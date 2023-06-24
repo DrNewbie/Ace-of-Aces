@@ -435,11 +435,6 @@ Hooks:PostHook(PlayerManager, "update", "AceAces_"..Idstring("loop:no_ammo_cost_
 	end
 end)
 
---[[]
-	player_show_of_force_more_armor_1
-	gain armor while interacting
-]]
-
 Hooks:PostHook(PlayerManager, "init_finalize", "AceAces_"..Idstring("init:show_of_force_more_armor"):key(), function(self)
 	if self:has_category_upgrade("player", "show_of_force_more_armor") then
 		self.__aa_show_of_force_more_armor = true
