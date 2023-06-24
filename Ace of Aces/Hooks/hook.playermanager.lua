@@ -245,7 +245,7 @@ function PlayerManager:skill_dodge_chance(...)
 	end
 	if self:has_category_upgrade("player", "stamina_to_dodge") then
 		if self:local_player() and self:local_player():movement() then
-			local prec_stamina = 1 - (self:local_player():movement()._stamina / self:local_player():movement():_max_stamina())
+			local prec_stamina = math.clamp(1 - (self:local_player():movement()._stamina / self:local_player():movement():_max_stamina()), 0, 1)
 			local muilt = self:upgrade_value("player", "stamina_to_dodge") or 0
 			prec_stamina = prec_stamina * muilt
 			Ans = Ans + prec_stamina
