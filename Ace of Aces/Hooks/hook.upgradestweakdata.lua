@@ -718,4 +718,16 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 			category = "player"
 		}
 	}
+	self.values.player.show_of_force_more_armor = {
+		100	--+100%
+	}
+	self.definitions.player_show_of_force_more_armor_1 = {
+		name_id = "menu_player_show_of_force_more_armor_1",
+		category = "feature",
+		upgrade = {
+			value = 1,
+			upgrade = "show_of_force_more_armor",
+			category = "player"
+		}
+	}
 end)

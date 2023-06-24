@@ -248,6 +248,11 @@ AceAces.Skill_Tweak = {
 		upgrades = {
 			"player_overheal_bonus_1"
 		}
+	},
+	["show_of_force"] = {
+		upgrades = {
+			"player_show_of_force_more_armor_1"
+		}
 	}
 }
 

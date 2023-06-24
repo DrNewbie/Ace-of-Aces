@@ -49,6 +49,7 @@
 	"aceaces_perseverance" : "Increases the duration of swan song by ##6## seconds. You now have an additional ##99%## movement penalty.",
 	"aceaces_hitman" : "Outside of stealth, automatically mark enemies who come near you.",
 	"aceaces_tea_cookies" : "You gain ##100%## overheal.\n Overheal will fade away in exactly ##60## seconds.",
+	"aceaces_show_of_force" : "You gain an additional ##100%## more armor when interacting with objects.",
 	"hud_int_hack_keycard" : "Interact to Hack System",
 	"hud_action_hack_keycard" : "Nowloading..."
 }

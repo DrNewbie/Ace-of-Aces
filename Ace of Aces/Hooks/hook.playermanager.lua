@@ -434,3 +434,29 @@ Hooks:PostHook(PlayerManager, "update", "AceAces_"..Idstring("loop:no_ammo_cost_
 		end
 	end
 end)
+
+--[[]
+	player_show_of_force_more_armor_1
+	gain armor while interacting
+]]
+
+Hooks:PostHook(PlayerManager, "init_finalize", "AceAces_"..Idstring("init:show_of_force_more_armor"):key(), function(self)
+	if self:has_category_upgrade("player", "show_of_force_more_armor") then
+		self.__aa_show_of_force_more_armor = true
+		self.__aa_show_of_force_more_armor_data = self:upgrade_value("player", "show_of_force_more_armor") or 0
+	end
+end)
+
+PlayerManager.aa_old_body_armor_value = PlayerManager.aa_old_body_armor_value or PlayerManager.body_armor_value
+
+function PlayerManager:body_armor_value(__cat, ...)
+	local __ans = self:aa_old_body_armor_value(__cat, ...)
+	if self.__aa_show_of_force_more_armor and __cat == "armor" then
+		local current_state = self:get_current_state()
+		if current_state and current_state:_interacting() then
+			__ans = __ans + __ans * math.max(self.__aa_show_of_force_more_armor_data/100, 0)
+		end
+		log(__cat, __ans)
+	end
+	return __ans
+end
