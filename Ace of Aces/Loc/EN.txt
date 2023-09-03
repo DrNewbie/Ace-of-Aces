@@ -50,6 +50,7 @@
 	"aceaces_hitman" : "Outside of stealth, automatically mark enemies who come near you.",
 	"aceaces_tea_cookies" : "You gain ##100%## overheal.\n Overheal will fade away in exactly ##60## seconds.",
 	"aceaces_show_of_force" : "You gain an additional ##100%## more armor when interacting with objects.",
+	"aceaces_backstab" : "You gain ##3%## critical hit chance for every ##1## point of concealment under ##75## up to ##30%##.",
 	"hud_int_hack_keycard" : "Interact to Hack System",
 	"hud_action_hack_keycard" : "Nowloading..."
 }

@@ -253,6 +253,11 @@ AceAces.Skill_Tweak = {
 		upgrades = {
 			"player_show_of_force_more_armor_1"
 		}
+	},
+	["backstab"] = {
+		upgrades = {
+			"player_detection_risk_75_add_crit_chance"
+		}
 	}
 }
 

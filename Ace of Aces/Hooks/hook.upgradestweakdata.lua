@@ -730,4 +730,22 @@ Hooks:PostHook(UpgradesTweakData, "_player_definitions", "AceAces_UpgradesTweakD
 			category = "player"
 		}
 	}
+	self.values.player.detection_risk_75_add_crit_chance = {
+		{
+			0.03,
+			1,
+			"below",
+			75,
+			0.3
+		}
+	}
+	self.definitions.player_detection_risk_75_add_crit_chance = {
+		name_id = "menu_player_detection_risk_75_add_crit_chance",
+		category = "feature",
+		upgrade = {
+			value = 1,
+			upgrade = "detection_risk_75_add_crit_chance",
+			category = "player"
+		}
+	}
 end)

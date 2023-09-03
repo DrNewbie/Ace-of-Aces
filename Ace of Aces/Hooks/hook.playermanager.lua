@@ -231,6 +231,8 @@ function PlayerManager:upgrade_value(category, upgrade, ...)
 		Ans = self:upgrade_value("player", "crouch_dodge_chance_addon", Ans)
 	elseif category == "shotgun" and upgrade == "reload_speed_multiplier" and self:has_category_upgrade("weapon", "put_that_in_faster") then
 		Ans = Ans + self:upgrade_value("weapon", "put_that_in_faster", 0)
+	elseif category == "player" and upgrade == "detection_risk_add_crit_chance" and self:has_category_upgrade("player", "detection_risk_75_add_crit_chance") then
+		Ans = self:upgrade_value("player", "detection_risk_75_add_crit_chance") or {}
 	end
 	return Ans
 end
