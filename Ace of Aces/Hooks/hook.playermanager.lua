@@ -453,7 +453,6 @@ function PlayerManager:body_armor_value(__cat, ...)
 		if current_state and current_state:_interacting() then
 			__ans = __ans + __ans * math.max(self.__aa_show_of_force_more_armor_data/100, 0)
 		end
-		log(__cat, __ans)
 	end
 	return __ans
 end
