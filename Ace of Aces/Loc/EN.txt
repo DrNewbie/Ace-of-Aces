@@ -41,7 +41,7 @@
 	"aceaces_underdog" : "You have a ##10%## chance to active ##ZEAL TIME## after killing an enemy.",
 	"aceaces_zealtime_name" : "Zeal Time",
 	"aceaces_zealtime_desc" : "Timespeed is reduced 85% and your speed are increased 100%.",
-	"aceaces_frenzy" : "Damage taken is now reduced by ##35%##, but your maximum health is decreased by ##49%##.",
+	"aceaces_frenzy" : "Damage taken is now reduced by ##35%##, and your maximum health never goes above ##49%##.",
 	"aceaces_messiah" : "You now have ##3## messiah charges.",
 	"aceaces_sprinter" : "You have a ##10%## increased chance to dodge while crouching. You gain a ##15%## chance to dodge while in a vehicle.",
 	"aceaces_far_away" : "The damage falloff for shotguns is reduced by ##100%##.\n##  (+100% bullets per shot)##",
