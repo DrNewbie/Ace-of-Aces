@@ -36,11 +36,10 @@ function PlayerMovement:on_SPOOCed(enemy_unit)
 				damage = damage,
 				no_raycast_check_characters = false
 			})
-			for u_key, u_data in pairs(managers.enemy:all_enemies()) do
-				if u_data.unit and alive(u_data.unit) and u_data.unit:brain() and u_data.unit:brain().on_intimidated and mvector3.distance(u_data.unit:position(), __pos) <= 3000 then
-					if type(u_data.unit:brain()._logics) == "table" and u_data.unit:brain()._logics["intimidated"] then
-						u_data.unit:brain():set_logic("intimidated", {effect = 1})
-					end
+			local enemies = World:find_units_quick("sphere", __pos, 3000, 12, 21)
+			for __i, __eunit in ipairs(enemies) do
+				if __eunit:character_damage() then
+					__eunit:character_damage():build_suppression("panic", 1)
 				end
 			end
 		end
